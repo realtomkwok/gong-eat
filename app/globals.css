@@ -1,33 +1,43 @@
+@import url("https://use.typekit.net/mhu6oec.css");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  /*--foreground-rgb: 0, 0, 0;*/
+  /*--background-start-rgb: 214, 219, 220;*/
+  /*--background-end-rgb: 255, 255, 255;*/
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+/*@media (prefers-color-scheme: dark) {*/
+/*  :root {*/
+/*    --foreground-rgb: 255, 255, 255;*/
+/*    --background-start-rgb: 0, 0, 0;*/
+/*    --background-end-rgb: 0, 0, 0;*/
+/*  }*/
+/*}*/
+
+html {
+  font-family: "sofia-pro", sans-serif;
+  font-weight: 400;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  @apply bg-background text-onBackground;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@layer components {
+  .button-base {
+    @apply font-semibold text-base tracking-tight;
   }
+
+  .card-title {
+    @apply font-semibold tracking-tight text-2xl md:text-xl sm:text-lg pb-0
+  }
+
+  .card-subtitle {
+    @apply font-medium tracking-wider text-base md:text-sm sm:text-sm
+  }
+
 }
