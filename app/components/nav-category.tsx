@@ -4,6 +4,7 @@ import React from "react"
 import Image from "next/image";
 import getEmoji from "@/app/lib/get-emoji";
 import {Button} from "@/app/components/button";
+import Link from "next/link";
 
 export interface CategoryData {
     props: {
@@ -34,16 +35,14 @@ export const NavCategory: React.FC<CategoryData> = ({props}) => {
 
 
     return (
-        <div className="flex relative w-10/12 items-center  h-full">
-            <div className="absolute z-10 w-full">
-                <div className="flex justify-between">
-                    <Button className={`-translate-x-4 ${isAtStart ? `opacity-0` : `opacity-100`}`} icon={{iconName: "chevron_left"}} onClick={handleScroll}/>
-                    <Button className={`translate-x-4 ${!isAtStart ? `opacity-0` : `opacity-100`}`} icon={{iconName: "chevron_right"}} onClick={handleScroll}/>
-                </div>
-            </div>
+        <div className="flex relative w-10/12 items-center h-full">
+            {/*<div className="absolute z-10 flex justify-between w-full h-full">*/}
+            {/*        <Button className={`-translate-x-4 ${isAtStart ? `visible` : `hidden`}`} icon={{iconName: "chevron_left"}} onClick={handleScroll}/>*/}
+            {/*        <Button className={`translate-x-4 ${!isAtStart ? `visible` : `hidden`}`} icon={{iconName: "chevron_right"}} onClick={handleScroll}/>*/}
+            {/*</div>*/}
                 <div className="flex flex-row gap-12 flex-nowrap items-center overflow-x-scroll" ref={scrollContainerRef}>
                     {props.map((item, key) => (
-                        <a href={item.category_slug} key={item.category_id}>
+                        <Link href={item.category_slug} key={item.category_id}>
                             <div className="CategoryContainer flex flex-col items-center py-2 gap-2 w-16 ">
                                 <div className="relative">
                                     <Image
@@ -56,7 +55,7 @@ export const NavCategory: React.FC<CategoryData> = ({props}) => {
                                 <span
                                     className="text-sm font-semibold uppercase tracking-wider text-nowrap">{item.category_name}</span>
                             </div>
-                        </a>
+                        </Link>
                     ))}
                 </div>
         </div>

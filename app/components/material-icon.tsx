@@ -25,6 +25,7 @@ export const MaterialIcon = ({
             style={{
                 fontVariationSettings: `'FILL' ${fill}, 'wght' ${weight}, 'GRAD' ${grade}, 'opsz' ${opticalSize}`,
                 fontSize: `${fontSize}px`,
+
             }}>
         {iconName}
       </span>
