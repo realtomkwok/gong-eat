@@ -1,0 +1,92 @@
+[
+    {
+        "item_id": 1,
+        "restaurant_id": 2,
+        "item_name": "Kung Pao Chicken",
+        "item_category": "Entree",
+        "item_description": "Spicy stir-fried chicken with peanuts, vegetables, and chili peppers.",
+        "item_price": 12.99,
+        "item_image": "https://images.unsplash.com/photo-1605704931020-ba62cdb2ba9b?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+        "item_id": 2,
+        "restaurant_id": 2,
+        "item_name": "Beef and Broccoli",
+        "item_category": "Main Course",
+        "item_description": "Tender beef and fresh broccoli in a ginger soy sauce.",
+        "item_price": 13.99,
+        "item_image": "https://images.unsplash.com/photo-1564834724105-918b73d1b9e0?q=80&w=2788&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3DD"
+    },
+    {
+        "item_id": 3,
+        "restaurant_id": 2,
+        "item_name": "Sweet and Sour Pork",
+        "item_category": "Main Course",
+        "item_description": "Crispy pork, pineapple, and bell peppers in a tangy sauce.",
+        "item_price": 11.99,
+        "item_image": "https://images.unsplash.com/photo-1623689046286-01d812cc8bad?q=80&w=2950&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+        "item_id": 4,
+        "restaurant_id": 2,
+        "item_name": "Ma Po Tofu",
+        "item_category": "Entree",
+        "item_description": "Soft tofu in a spicy and savory Sichuan sauce with minced meat.",
+        "item_price": 10.99,
+        "item_image": "https://images.unsplash.com/photo-1596458397260-255807e979f1?q=80&w=2815&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+        "item_id": 5,
+        "restaurant_id": 2,
+        "item_name": "Peking Duck",
+        "item_category": "Entree",
+        "item_description": "Roasted duck with crispy skin, served with pancakes, spring onions, and hoisin sauce.",
+        "item_price": 25.99,
+        "item_image": "https://images.unsplash.com/photo-1598514982205-f36b96d1e8d4?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+        "item_id": 6,
+        "restaurant_id": 2,
+        "item_name": "Hot and Sour Soup",
+        "item_category": "Soup",
+        "item_description": "A rich, tangy soup with mushrooms, tofu, bamboo shoots, and egg.",
+        "item_price": 7.99,
+        "item_image": "https://images.unsplash.com/photo-1527976746453-f363eac4d889?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+        "item_id": 7,
+        "restaurant_id": 2,
+        "item_name": "Fried Rice",
+        "item_category": "Main Course",
+        "item_description": "Classic fried rice with eggs, peas, carrots, and green onions.",
+        "item_price": 8.99,
+        "item_image": "https://images.unsplash.com/photo-1609570324378-ec0c4c9b6ba8?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+        "item_id": 8,
+        "restaurant_id": 2,
+        "item_name": "Dumplings",
+        "item_category": "Main Course",
+        "item_description": "Steamed or fried dumplings filled with pork and vegetables.",
+        "item_price": 9.99,
+        "item_image": "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+        "item_id": 9,
+        "restaurant_id": 2,
+        "item_name": "Spring Rolls",
+        "item_category": "Appetizer",
+        "item_description": "Crispy rolls filled with vegetables and sometimes meat, served with dipping sauce.",
+        "item_price": 5.99,
+        "item_image": "https://images.unsplash.com/photo-1606525437679-037aca74a3e9?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+        "item_id": 10,
+        "restaurant_id": 2,
+        "item_name": "Moo Shu Pork",
+        "item_category": "Main Course",
+        "item_description": "Shredded pork with vegetables and hoisin sauce, served with thin pancakes.",
+        "item_price": 14.99,
+        "item_image": "https://images.unsplash.com/photo-1674306554746-604fffd2e343?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    }
+]

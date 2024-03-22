@@ -1,113 +1,131 @@
 [
-  {
-    "restaurant_id": 1,
-    "restaurant_name": "Sunny's Italian Kitchen",
-    "restaurant_address": "123 Bella St, New York, NY 10012",
-    "restaurant_phone": "(212) 555-1234",
-    "restaurant_category": [
-      "Italian"
-    ],
-    "restaurant_hero_image": "https://images.unsplash.com/photo-1600688640154-9619e002df30?q=80&w=2727&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "restaurant_rating": 4.5
-  },
-  {
-    "restaurant_id": 2,
-    "restaurant_name": "Beijing Express",
-    "restaurant_address": "456 Dragon Ave, San Francisco, CA 94108",
-    "restaurant_phone": "(415) 555-5678",
-    "restaurant_category": [
-      "Chinese"
-    ],
-    "restaurant_hero_image": "https://images.unsplash.com/photo-1605467822250-699f03d50f67?q=80&w=2864&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "restaurant_rating": 4.2
-  },
-  {
-    "restaurant_id": 3,
-    "restaurant_name": "Casa de Taco",
-    "restaurant_address": "789 Fiesta Rd, Austin, TX 78704",
-    "restaurant_phone": "(512) 555-7890",
-    "restaurant_category": [
-      "Mexican"
-    ],
-    "restaurant_hero_image": "https://images.unsplash.com/photo-1613514785940-daed07799d9b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "restaurant_rating": 4.7
-  },
-  {
-    "restaurant_id": 4,
-    "restaurant_name": "Tokyo Sushi Bar",
-    "restaurant_address": "321 Sake St, Seattle, WA 98101",
-    "restaurant_phone": "(206) 555-1212",
-    "restaurant_category": [
-      "Japanese",
-      "Sushi"
-    ],
-    "restaurant_hero_image": "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?q=80&w=2270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "restaurant_rating": 4.8
-  },
-  {
-    "restaurant_id": 5,
-    "restaurant_name": "The Burger Joint",
-    "restaurant_address": "135 Beef Blvd, Chicago, IL 60607",
-    "restaurant_phone": "(312) 555-2323",
-    "restaurant_category": [
-      "American"
-    ],
-    "restaurant_hero_image": "https://images.unsplash.com/photo-1601894087104-0c18bc34dbd6?q=80&w=2865&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "restaurant_rating": 4.1
-  },
-  {
-    "restaurant_id": 6,
-    "restaurant_name": "Le Petit Bistro",
-    "restaurant_address": "246 Rive Gauche, Paris, France 75005",
-    "restaurant_phone": "+33 1 42 22 33 44",
-    "restaurant_category": [
-      "French"
-    ],
-    "restaurant_hero_image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "restaurant_rating": 4.9
-  },
-  {
-    "restaurant_id": 7,
-    "restaurant_name": "Curry in a Hurry",
-    "restaurant_address": "678 Spice Ln, London, UK W1D 5DF",
-    "restaurant_phone": "+44 20 7946 0987",
-    "restaurant_category": [
-      "Indian"
-    ],
-    "restaurant_hero_image": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=2597&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "restaurant_rating": 4.3
-  },
-  {
-    "restaurant_id": 8,
-    "restaurant_name": "Vegan Delights",
-    "restaurant_address": "135 Green St, Portland, OR 97209",
-    "restaurant_phone": "(503) 555-9876",
-    "restaurant_category": [
-      "Vegan"
-    ],
-    "restaurant_hero_image": "https://images.unsplash.com/photo-1613744033489-5fd69e431d4a?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "restaurant_rating": 4.5
-  },
-  {
-    "restaurant_id": 9,
-    "restaurant_name": "Steakhouse Supreme",
-    "restaurant_address": "876 Prime Rd, Dallas, TX 75201",
-    "restaurant_phone": "(214) 555-3456",
-    "restaurant_category": [
-      "Steakhouse"
-    ],
-    "restaurant_hero_image": "https://images.unsplash.com/photo-1666013943134-48dd4267a4c1?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "restaurant_rating": 4.6
-  },
-  {
-    "restaurant_id": 10,
-    "restaurant_name": "Gyro Galaxy",
-    "restaurant_address": "543 Pita Way, Miami, FL 33139",
-    "restaurant_phone": "(305) 555-6789",
-    "restaurant_category": [
-      "Greek"
-    ],
-    "restaurant_hero_image": "https://images.unsplash.com/photo-1590991444073-477dac7ece63?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "restaurant_rating": 4.4
-  }
+    {
+        "restaurant_id": 1,
+        "restaurant_name": "Sunny's Italian Kitchen",
+        "restaurant_address": "123 Bella St, New York, NY 10012",
+        "restaurant_phone": "(212) 555-1234",
+        "restaurant_category": [
+            "Italian",
+            "Pizza",
+            "Pasta"
+        ],
+        "restaurant_hero_image": "https://images.unsplash.com/photo-1600688640154-9619e002df30?q=80&w=2727&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "restaurant_rating": 4.5
+    },
+    {
+        "restaurant_id": 2,
+        "restaurant_name": "Canton Express",
+        "restaurant_address": "456 Dragon Ave, San Francisco, CA 94108",
+        "restaurant_phone": "(415) 555-5678",
+        "restaurant_category": [
+            "Chinese",
+            "Dim Sum",
+            "Healthy"
+        ],
+        "restaurant_hero_image": "https://images.unsplash.com/photo-1605467822250-699f03d50f67?q=80&w=2864&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "restaurant_rating": 4.2
+    },
+    {
+        "restaurant_id": 3,
+        "restaurant_name": "Casa de Taco",
+        "restaurant_address": "789 Fiesta Rd, Austin, TX 78704",
+        "restaurant_phone": "(512) 555-7890",
+        "restaurant_category": [
+            "Mexican",
+            "Tacos",
+            "Burritos"
+        ],
+        "restaurant_hero_image": "https://images.unsplash.com/photo-1613514785940-daed07799d9b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "restaurant_rating": 4.7
+    },
+    {
+        "restaurant_id": 4,
+        "restaurant_name": "Tokyo Sushi Bar",
+        "restaurant_address": "321 Sake St, Seattle, WA 98101",
+        "restaurant_phone": "(206) 555-1212",
+        "restaurant_category": [
+            "Japanese",
+            "Sushi"
+        ],
+        "restaurant_hero_image": "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?q=80&w=2270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "restaurant_rating": 4.8
+    },
+    {
+        "restaurant_id": 5,
+        "restaurant_name": "The Burger Joint",
+        "restaurant_address": "135 Beef Blvd, Chicago, IL 60607",
+        "restaurant_phone": "(312) 555-2323",
+        "restaurant_category": [
+            "American",
+            "Fast Food",
+            "Burgers"
+        ],
+        "restaurant_hero_image": "https://images.unsplash.com/photo-1601894087104-0c18bc34dbd6?q=80&w=2865&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "restaurant_rating": 4.1
+    },
+    {
+        "restaurant_id": 6,
+        "restaurant_name": "Le Petit Bistro",
+        "restaurant_address": "246 Rive Gauche, Paris, France 75005",
+        "restaurant_phone": "+33 1 42 22 33 44",
+        "restaurant_category": [
+            "French",
+            "Bistro",
+            "Wine Bar"
+        ],
+        "restaurant_hero_image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "restaurant_rating": 4.9
+    },
+    {
+        "restaurant_id": 7,
+        "restaurant_name": "Curry in a Hurry",
+        "restaurant_address": "678 Spice Ln, London, UK W1D 5DF",
+        "restaurant_phone": "+44 20 7946 0987",
+        "restaurant_category": [
+            "Indian",
+            "Curry",
+            "Spicy"
+        ],
+        "restaurant_hero_image": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=2597&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "restaurant_rating": 4.3
+    },
+    {
+        "restaurant_id": 8,
+        "restaurant_name": "Vegan Delights",
+        "restaurant_address": "135 Green St, Portland, OR 97209",
+        "restaurant_phone": "(503) 555-9876",
+        "restaurant_category": [
+            "Vegan",
+            "Healthy",
+            "Organic"
+        ],
+        "restaurant_hero_image": "https://images.unsplash.com/photo-1613744033489-5fd69e431d4a?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "restaurant_rating": 4.5
+    },
+    {
+        "restaurant_id": 9,
+        "restaurant_name": "Steakhouse Supreme",
+        "restaurant_address": "876 Prime Rd, Dallas, TX 75201",
+        "restaurant_phone": "(214) 555-3456",
+        "restaurant_category": [
+            "Steakhouse",
+            "American",
+            "BBQ"
+        ],
+        "restaurant_hero_image": "https://images.unsplash.com/photo-1666013943134-48dd4267a4c1?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "restaurant_rating": 4.6
+    },
+    {
+        "restaurant_id": 10,
+        "restaurant_name": "Gyro Galaxy",
+        "restaurant_address": "543 Pita Way, Miami, FL 33139",
+        "restaurant_phone": "(305) 555-6789",
+        "restaurant_category": [
+            "Greek",
+            "Mediterranean",
+            "Gyros"
+        ],
+        "restaurant_hero_image": "https://images.unsplash.com/photo-1590991444073-477dac7ece63?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "restaurant_rating": 4.4
+    }
 ]
