@@ -23,13 +23,10 @@ html {
   font-weight: 400;
 }
 
-body {
-  @apply bg-background text-onBackground;
-}
-
 @layer components {
-  .button-base {
-    @apply font-semibold text-base tracking-tight;
+
+  .input-base {
+    @apply font-semibold text-base bg-surfaceVariant text-onSurface rounded-full overflow-hidden;
   }
 
   .card-title {

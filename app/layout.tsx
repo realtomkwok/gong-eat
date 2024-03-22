@@ -11,14 +11,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
                                        children,
+                                       restaurant
                                    }: Readonly<{
+    restaurant: React.ReactNode;
     children: React.ReactNode;
 }>) {
     return (
         <html lang="en">
         <body className="font-Sofia antialiased">
-        <NavIsland/>
-        {children}
+        <div>{restaurant}</div>
+        <div>{children}</div>
         </body>
         </html>
     );
