@@ -3,8 +3,8 @@
 import React from "react"
 import Image from "next/image";
 import getEmoji from "@/app/lib/get-emoji";
-import {Button} from "@/app/components/button";
 import Link from "next/link";
+import {Button} from "@/app/components/button";
 
 export interface CategoryData {
     props: {

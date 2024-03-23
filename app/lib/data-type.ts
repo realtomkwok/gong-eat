@@ -1,5 +1,7 @@
+import {UUID} from "node:crypto";
+
 interface RestaurantData {
-    restaurant_id: number
+    restaurant_id: UUID
     restaurant_name: string
     restaurant_address: string
     restaurant_phone: string

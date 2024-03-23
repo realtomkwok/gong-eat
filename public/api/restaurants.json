@@ -1,131 +1,122 @@
 [
     {
-        "restaurant_id": 1,
-        "restaurant_name": "Sunny's Italian Kitchen",
-        "restaurant_address": "123 Bella St, New York, NY 10012",
-        "restaurant_phone": "(212) 555-1234",
-        "restaurant_category": [
-            "Italian",
-            "Pizza",
-            "Pasta"
-        ],
-        "restaurant_hero_image": "https://images.unsplash.com/photo-1600688640154-9619e002df30?q=80&w=2727&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "restaurant_id": "3f2504e0-4f89-11d3-9a0c-0305e82c3301",
+        "restaurant_name": "Bamboo Garden Chinese",
+        "restaurant_address": "45 Crown Street, Wollongong NSW 2500",
+        "restaurant_phone": "0242112345",
+        "restaurant_category": ["chinese"],
+        "restaurant_hero_image": "https://oddfellows.tv/app/uploads/2022/07/01b.jpg",
+        "restaurant_revenue": 45000,
         "restaurant_rating": 4.5
     },
     {
-        "restaurant_id": 2,
-        "restaurant_name": "Canton Express",
-        "restaurant_address": "456 Dragon Ave, San Francisco, CA 94108",
-        "restaurant_phone": "(415) 555-5678",
-        "restaurant_category": [
-            "Chinese",
-            "Dim Sum",
-            "Healthy"
-        ],
-        "restaurant_hero_image": "https://images.unsplash.com/photo-1605467822250-699f03d50f67?q=80&w=2864&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "restaurant_rating": 4.2
-    },
-    {
-        "restaurant_id": 3,
-        "restaurant_name": "Casa de Taco",
-        "restaurant_address": "789 Fiesta Rd, Austin, TX 78704",
-        "restaurant_phone": "(512) 555-7890",
-        "restaurant_category": [
-            "Mexican",
-            "Tacos",
-            "Burritos"
-        ],
-        "restaurant_hero_image": "https://images.unsplash.com/photo-1613514785940-daed07799d9b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "restaurant_rating": 4.7
-    },
-    {
-        "restaurant_id": 4,
-        "restaurant_name": "Tokyo Sushi Bar",
-        "restaurant_address": "321 Sake St, Seattle, WA 98101",
-        "restaurant_phone": "(206) 555-1212",
-        "restaurant_category": [
-            "Japanese",
-            "Sushi"
-        ],
-        "restaurant_hero_image": "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?q=80&w=2270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "restaurant_rating": 4.8
-    },
-    {
-        "restaurant_id": 5,
-        "restaurant_name": "The Burger Joint",
-        "restaurant_address": "135 Beef Blvd, Chicago, IL 60607",
-        "restaurant_phone": "(312) 555-2323",
-        "restaurant_category": [
-            "American",
-            "Fast Food",
-            "Burgers"
-        ],
-        "restaurant_hero_image": "https://images.unsplash.com/photo-1601894087104-0c18bc34dbd6?q=80&w=2865&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "restaurant_rating": 4.1
-    },
-    {
-        "restaurant_id": 6,
-        "restaurant_name": "Le Petit Bistro",
-        "restaurant_address": "246 Rive Gauche, Paris, France 75005",
-        "restaurant_phone": "+33 1 42 22 33 44",
-        "restaurant_category": [
-            "French",
-            "Bistro",
-            "Wine Bar"
-        ],
-        "restaurant_hero_image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "restaurant_rating": 4.9
-    },
-    {
-        "restaurant_id": 7,
-        "restaurant_name": "Curry in a Hurry",
-        "restaurant_address": "678 Spice Ln, London, UK W1D 5DF",
-        "restaurant_phone": "+44 20 7946 0987",
-        "restaurant_category": [
-            "Indian",
-            "Curry",
-            "Spicy"
-        ],
-        "restaurant_hero_image": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=2597&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "restaurant_id": "3f2504e0-4f89-11d3-9a0c-0305e82c3302",
+        "restaurant_name": "Taj Mahal Indian Cuisine",
+        "restaurant_address": "18 Corrimal Street, Wollongong NSW 2500",
+        "restaurant_phone": "0242123456",
+        "restaurant_category": ["indian"],
+        "restaurant_hero_image": "https://oddfellows.tv/app/uploads/2022/07/10.jpg",
+        "restaurant_revenue": 48000,
         "restaurant_rating": 4.3
     },
     {
-        "restaurant_id": 8,
-        "restaurant_name": "Vegan Delights",
-        "restaurant_address": "135 Green St, Portland, OR 97209",
-        "restaurant_phone": "(503) 555-9876",
-        "restaurant_category": [
-            "Vegan",
-            "Healthy",
-            "Organic"
-        ],
-        "restaurant_hero_image": "https://images.unsplash.com/photo-1613744033489-5fd69e431d4a?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "restaurant_rating": 4.5
+        "restaurant_id": "3f2504e0-4f89-11d3-9a0c-0305e82c3303",
+        "restaurant_name": "Roma Pizzeria",
+        "restaurant_address": "32 Burelli Street, Wollongong NSW 2500",
+        "restaurant_phone": "0242134567",
+        "restaurant_category": ["pizza"],
+        "restaurant_hero_image": "https://oddfellows.tv/app/uploads/2022/07/D.jpg",
+        "restaurant_revenue": 53000,
+        "restaurant_rating": 4.1
     },
     {
-        "restaurant_id": 9,
-        "restaurant_name": "Steakhouse Supreme",
-        "restaurant_address": "876 Prime Rd, Dallas, TX 75201",
-        "restaurant_phone": "(214) 555-3456",
-        "restaurant_category": [
-            "Steakhouse",
-            "American",
-            "BBQ"
-        ],
-        "restaurant_hero_image": "https://images.unsplash.com/photo-1666013943134-48dd4267a4c1?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "restaurant_id": "3f2504e0-4f89-11d3-9a0c-0305e82c3304",
+        "restaurant_name": "Sakura Sushi",
+        "restaurant_address": "50 Kembla Street, Wollongong NSW 2500",
+        "restaurant_phone": "0242145678",
+        "restaurant_category": ["japanese"],
+        "restaurant_hero_image": "https://oddfellows.tv/app/uploads/2022/07/09.jpg",
+        "restaurant_revenue": 42000,
         "restaurant_rating": 4.6
     },
     {
-        "restaurant_id": 10,
-        "restaurant_name": "Gyro Galaxy",
-        "restaurant_address": "543 Pita Way, Miami, FL 33139",
-        "restaurant_phone": "(305) 555-6789",
-        "restaurant_category": [
-            "Greek",
-            "Mediterranean",
-            "Gyros"
-        ],
-        "restaurant_hero_image": "https://images.unsplash.com/photo-1590991444073-477dac7ece63?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "restaurant_id": "3f2504e0-4f89-11d3-9a0c-0305e82c3305",
+        "restaurant_name": "Pasta Bella",
+        "restaurant_address": "78 Keira Street, Wollongong NSW 2500",
+        "restaurant_phone": "0242156789",
+        "restaurant_category": ["italian"],
+        "restaurant_hero_image": "https://oddfellows.tv/app/uploads/2022/07/02.jpg",
+        "restaurant_revenue": 46000,
+        "restaurant_rating": 3.9
+    },
+    {
+        "restaurant_id": "3f2504e0-4f89-11d3-9a0c-0305e82c3306",
+        "restaurant_name": "Green Leaves Vegan",
+        "restaurant_address": "62 Market Street, Wollongong NSW 2500",
+        "restaurant_phone": "0242167890",
+        "restaurant_category": ["vegan"],
+        "restaurant_hero_image": "https://oddfellows.tv/app/uploads/2022/07/03.jpg",
+        "restaurant_revenue": 49000,
+        "restaurant_rating": 4.0
+    },
+    {
+        "restaurant_id": "3f2504e0-4f89-11d3-9a0c-0305e82c3307",
+        "restaurant_name": "El Mexicano Loco",
+        "restaurant_address": "15 Cliff Road, Wollongong NSW 2500",
+        "restaurant_phone": "0242178901",
+        "restaurant_category": ["mexican"],
+        "restaurant_hero_image": "https://oddfellows.tv/app/uploads/2022/07/05.jpg",
+        "restaurant_revenue": 51000,
+        "restaurant_rating": 4.2
+    },
+    {
+        "restaurant_id": "3f2504e0-4f89-11d3-9a0c-0305e82c3308",
+        "restaurant_name": "Bangkok Express",
+        "restaurant_address": "88 Smith Street, Wollongong NSW 2500",
+        "restaurant_phone": "0242189012",
+        "restaurant_category": ["thai"],
+        "restaurant_hero_image": "https://oddfellows.tv/app/uploads/2022/07/D.jpg",
+        "restaurant_revenue": 47000,
+        "restaurant_rating": 3.8
+    },
+    {
+        "restaurant_id": "3f2504e0-4f89-11d3-9a0c-0305e82c3309",
+        "restaurant_name": "Speedy Burgers",
+        "restaurant_address": "20 Crown Lane, Wollongong NSW 2500",
+        "restaurant_phone": "0242190123",
+        "restaurant_category": ["fast food"],
+        "restaurant_hero_image": "https://oddfellows.tv/app/uploads/2022/07/10-1.jpg",
+        "restaurant_revenue": 50000,
         "restaurant_rating": 4.4
+    },
+    {
+        "restaurant_id": "3f2504e0-4f89-11d3-9a0c-0305e82c3310",
+        "restaurant_name": "Morning Glory Bakery",
+        "restaurant_address": "5 Harbour Street, Wollongong NSW 2500",
+        "restaurant_phone": "0242101234",
+        "restaurant_category": ["bakery"],
+        "restaurant_hero_image": "https://oddfellows.tv/app/uploads/2022/07/D.jpg",
+        "restaurant_revenue": 43000,
+        "restaurant_rating": 4.7
+    },
+    {
+        "restaurant_id": "3f2504e0-4f89-11d3-9a0c-0305e82c3311",
+        "restaurant_name": "Healthy Bites Cafe",
+        "restaurant_address": "34 Marine Drive, Wollongong NSW 2500",
+        "restaurant_phone": "0242212345",
+        "restaurant_category": ["healthy"],
+        "restaurant_hero_image": "https://oddfellows.tv/app/uploads/2022/07/02C.jpg",
+        "restaurant_revenue": 44000,
+        "restaurant_rating": 3.5
+    },
+    {
+        "restaurant_id": "3f2504e0-4f89-11d3-9a0c-0305e82c3312",
+        "restaurant_name": "Dragon Noodle House",
+        "restaurant_address": "12 Young Street, Wollongong NSW 2500",
+        "restaurant_phone": "0242323456",
+        "restaurant_category": ["chinese"],
+        "restaurant_hero_image": "https://oddfellows.tv/app/uploads/2022/07/System_A.jpg",
+        "restaurant_revenue": 52000,
+        "restaurant_rating": 4.8
     }
 ]

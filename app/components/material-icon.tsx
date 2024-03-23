@@ -1,4 +1,5 @@
 import React from "react";
+import {Icon} from "next/dist/lib/metadata/types/metadata-types";
 
 export interface IconProps extends React.HTMLAttributes<HTMLElement> {
     iconName: string;
@@ -10,7 +11,7 @@ export interface IconProps extends React.HTMLAttributes<HTMLElement> {
     opticalSize?: 20 | 24 | 48
 }
 
-export const MaterialIcon = ({
+export const MaterialIcon: React.FC<IconProps> = ({
                                  iconName,
                                  iconStyle = "rounded",
                                  fill = 1,

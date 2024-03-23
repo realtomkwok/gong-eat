@@ -1,6 +1,7 @@
 import Link from "next/link";
 import {Button} from "@/app/components/button";
 import Search from "@/app/components/search";
+import React from "react";
 
 export default function NavIsland() {
     let deliveryAddress = "1234 Main St"

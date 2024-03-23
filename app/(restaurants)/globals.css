@@ -19,22 +19,28 @@
 /*}*/
 
 html {
+  height: 100%;
   font-family: "sofia-pro", sans-serif;
   font-weight: 400;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
 @layer components {
+  .subtract-nav {
+    @apply top-[84px]
+  }
 
   .input-base {
     @apply font-semibold text-base bg-surfaceVariant text-onSurface rounded-full overflow-hidden;
   }
-
   .card-title {
     @apply font-semibold tracking-tight text-2xl md:text-xl sm:text-lg pb-0
   }
-
   .card-subtitle {
     @apply font-medium tracking-wider text-base md:text-sm sm:text-sm
   }
-
 }

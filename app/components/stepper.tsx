@@ -2,7 +2,7 @@
 
 import {Button} from "@/app/components/button";
 
-export const Stepper = () => {
+export const Stepper: React.FC = () => {
     return (
         <div className="flex flex-row gap-2.5">
             <Button icon={{iconName: "plus", iconStyle: "rounded", weight: 600, opticalSize: 20}}/>

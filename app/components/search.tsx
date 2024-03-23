@@ -1,6 +1,7 @@
 "use client"
 
 import {MaterialIcon} from "@/app/components/material-icon";
+import React from "react";
 
 export default function Search({placeholder}: { placeholder: string }) {
     function handleSearch(term: string) {

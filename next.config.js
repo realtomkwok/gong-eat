@@ -8,6 +8,10 @@ module.exports = {
             {
                 protocol: 'https',
                 hostname: 'fluent-emoji.ciffelia.com'
+            },
+            {
+                protocol: 'https',
+                hostname: 'oddfellows.tv'
             }
         ]
     }

@@ -3,6 +3,7 @@ import {MaterialIcon} from "@/app/components/material-icon";
 import {Card_MenuItem} from "@/app/components/card";
 import groupItemsByKey from "@/app/lib/group-items";
 import Link from "next/link";
+import {RestaurantData, MenuItemData} from "@/app/types/restaurant-data";
 
 function getID(slug: string) {
     return slug.split('_id%3D')[1] // = -> %3D
@@ -10,7 +11,7 @@ function getID(slug: string) {
 
 export default async function RestaurantPage({params}: { params: { slug: string } }) {
 
-    const restaurantID = Number(getID(params.slug))
+    const restaurantID = getID(params.slug)
     const restaurantData: RestaurantData | undefined = await getData(`/api/restaurants.json`)
         .then((data: RestaurantData[]) => data.find((restaurant: RestaurantData) => restaurant.restaurant_id === restaurantID))
     const menuData: MenuItemData[] | undefined = await getData(`/api/menu/restaurant_id=${restaurantID}.json`)

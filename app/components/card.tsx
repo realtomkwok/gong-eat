@@ -26,7 +26,7 @@ export const Card_Restaurant: React.FC<CardProps> = ({props}) => {
             <div className="StateLayer w-full h-full hover:bg-surfaceVariant transition-all">
                 <div className="Card flex flex-col items-start self-stretch">
                     <div className="ImageContainer relative w-full aspect-square">
-                        <Image src={props.imageSrc} alt={props.title} fill style={{objectFit: "cover"}}/>
+                        <Image src={props.imageSrc} alt={props.title} fill style={{objectFit: "cover"}} sizes="500px, 500px"/>
                     </div>
                     <div className="TextContainer w-full flex flex-col gap-2 px-4 py-6 ">
                         <div className="flex flex-row items-baseline justify-between">
