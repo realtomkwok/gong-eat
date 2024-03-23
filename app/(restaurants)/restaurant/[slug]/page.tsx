@@ -1,13 +1,10 @@
-import getData from "@/app/lib/get-data";
 import {MaterialIcon} from "@/app/components/material-icon";
 import {Card_MenuItem} from "@/app/components/card";
+import getData from "@/app/lib/get-data";
+import getID from "@/app/lib/get-id";
 import groupItemsByKey from "@/app/lib/group-items";
 import Link from "next/link";
-import {RestaurantData, MenuItemData} from "@/app/types/restaurant-data";
-
-function getID(slug: string) {
-    return slug.split('_id%3D')[1] // = -> %3D
-}
+import {RestaurantData, MenuItemData} from "@/app/lib/data-type";
 
 export default async function RestaurantPage({params}: { params: { slug: string } }) {
 

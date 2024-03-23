@@ -1,6 +1,6 @@
 import {UUID} from "node:crypto";
 
-interface RestaurantData {
+export interface RestaurantData {
     restaurant_id: UUID
     restaurant_name: string
     restaurant_address: string
@@ -11,7 +11,7 @@ interface RestaurantData {
     restaurant_hero_image: string
 }
 
-interface CustomerData {
+export interface CustomerData {
     customer_id: number
     customer_name: string
     customer_phone: string
@@ -20,7 +20,7 @@ interface CustomerData {
     vip_expire: Date
 }
 
-interface MenuItemData {
+export interface MenuItemData {
     item_id: number
     item_name: string
     item_category: string
@@ -29,7 +29,7 @@ interface MenuItemData {
     item_image: string
 }
 
-interface OrderData {
+export interface OrderData {
     order_id: number
     customer_id: number
     restaurant_id: number
