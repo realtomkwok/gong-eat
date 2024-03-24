@@ -22,6 +22,7 @@ const config: Config = {
         "surfaceContainerHighContrast": "rgba(245, 229, 219, 1)",
         "onSurfaceContainer": "rgba(33, 26, 20, 1)",
         "outline": "rgba(131, 116, 105, 1)",
+        "outlineVariant": "rgba(213, 195, 182, 1)",
         "background": "rgba(255, 248, 245, 1)",
         "onBackground": "rgba(33, 26, 20, 1)"
       },

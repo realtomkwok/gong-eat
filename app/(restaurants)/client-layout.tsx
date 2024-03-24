@@ -9,6 +9,7 @@ import NavIsland from "@/app/components/nav-island";
 export interface LayoutProps {
     children: React.ReactNode
     modal: React.ReactNode
+    feed: React.ReactNode
 }
 
 const Child = forwardRef<
@@ -30,7 +31,7 @@ const Child = forwardRef<
 Child.displayName = "Child"
 
 export const ClientLayout = (props: LayoutProps) => {
-    const segment = useSelectedLayoutSegment()
+    const modalSegment = useSelectedLayoutSegment()
     const segments = useSelectedLayoutSegments("modal")
 
     const [restaurantModalShown, setRestaurantModalShown] = useState(false)
@@ -42,13 +43,13 @@ export const ClientLayout = (props: LayoutProps) => {
     }, [segments]);
 
     return (
-        <div className="bg-surface ">
+        <div className="bg-surface min-h-screen">
             <NavIsland />
             <AnimatePresence mode="popLayout" initial={false}>
-                <Child key={segment} >{props.children}</Child>
+                <Child key={modalSegment}>{props.children}</Child>
                 {restaurantModalShown && props.modal}
             </AnimatePresence>
-            <footer className="p-6" />
+            <footer className="p-6"/>
         </div>
     );
 }

@@ -3,66 +3,66 @@
         "category_id": 0,
         "category_name": "Chinese",
         "category_icon": "🥡",
-        "category_slug": "/chinese"
+        "category_slug": "/category/chinese"
     },
     {
         "category_id": 1,
         "category_name": "Indian",
         "category_icon": "🍛",
-        "category_slug": "/indian"
+        "category_slug": "/category/indian"
     },
     {
         "category_id": 2,
         "category_name": "Italian",
         "category_icon": "🍝",
-        "category_slug": "/italian"
+        "category_slug": "/category/italian"
     },
     {
         "category_id": 3,
         "category_name": "Japanese",
         "category_icon": "🍱",
-        "category_slug": "/japanese"
+        "category_slug": "/category/japanese"
     },
     {
         "category_id": 4,
         "category_name": "Mexican",
         "category_icon": "🌮",
-        "category_slug": "/mexican"
+        "category_slug": "/category/mexican"
     },
     {
         "category_id": 5,
         "category_name": "Thai",
         "category_icon": "🥘",
-        "category_slug": "/thai"
+        "category_slug": "/category/thai"
     },
     {
         "category_id": 6,
         "category_name": "Pizza",
         "category_icon": "🍕",
-        "category_slug": "/pizza"
+        "category_slug": "/category/pizza"
     },
     {
         "category_id": 7,
         "category_name": "Fast Food",
         "category_icon": "🍔",
-        "category_slug": "/burgers"
+        "category_slug": "/category/burgers"
     },
     {
         "category_id": 8,
         "category_name": "Bakery",
         "category_icon": "🥐",
-        "category_slug": "/bakery"
+        "category_slug": "/category/bakery"
     },
     {
         "category_id": 9,
         "category_name": "Vegan",
         "category_icon": "🥬",
-        "category_slug": "/vegan"
+        "category_slug": "/category/vegan"
     },
     {
         "category_id": 10,
         "category_name": "Healthy",
         "category_icon": "🥦",
-        "category_slug": "/healthy"
+        "category_slug": "/category/healthy"
     }
 ]

@@ -5,6 +5,7 @@ import {motion, MotionValue} from "framer-motion";
 import {Button} from "@/app/components/button";
 import FrozenRouter from "@/app/components/frozen-router";
 import {MouseEventHandler, useCallback, useRef} from "react";
+import {emphasizedEasing_Long} from "@/app/lib/motion-config";
 
 export default function Modal({children}: { children: React.ReactNode }) {
     const overlay = useRef(null)
@@ -41,7 +42,7 @@ export default function Modal({children}: { children: React.ReactNode }) {
                         initial="closed"
                         animate="open"
                         exit="closed"
-                        transition={{ease: [0.2, 0, 0, 1], duration: 0.45, }}
+                        transition={emphasizedEasing_Long}
                         className="subtract-nav mt-12 transform relative rounded-4xl w-full bg-surfaceContainerHighContrast">
                     <Button icon={{iconName: "close"}} className="sticky mt-6 ml-8 top-28" onClick={() => {router.back()}}/>
                 <FrozenRouter>{children}</FrozenRouter>

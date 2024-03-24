@@ -6,6 +6,5 @@ export default function RestaurantModal({params}: { params: { slug: string } }) 
         <Modal>
             <RestaurantPage params={params}/>
         </Modal>
-
     )
 }

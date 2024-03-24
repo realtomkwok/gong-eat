@@ -18,7 +18,7 @@ export default async function RestaurantPage({params}: { params: { slug: string 
         const menuCategories = Object.keys(groupedItems)
         const setByCategory: Set<MenuItemData>[] = menuCategories.map((category) => new Set(groupedItems[category]))
         return (
-            <main className="bg-surfaceContainerHighContrast text-onSurface">
+            <main className="bg-surfaceContainerHighContrast text-onSurface overscroll-none">
                 <div className="container mx-auto grid grid-cols-4 gap-6 p-12">
                     <div className="col-span-1 flex flex-col gap-6 sticky top-28 h-fit">
                         <section className="flex flex-col gap-2.5 bg-surfaceContainer p-6 rounded-3xl">
