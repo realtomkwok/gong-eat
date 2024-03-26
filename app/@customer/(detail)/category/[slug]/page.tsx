@@ -3,9 +3,6 @@ import {RestaurantData} from "@/app/lib/data-type";
 import slugify from "slugify";
 import Link from "next/link";
 import {Card_Restaurant} from "@/app/components/card";
-import {NavCategory} from "@/app/components/nav-category";
-import {Button} from "@/app/components/button";
-
 
 export default async function CategoryPage({params}: { params: { slug: string } }) {
     const currentCategory = params.slug
@@ -25,14 +22,6 @@ export default async function CategoryPage({params}: { params: { slug: string } 
 
     return (
         <>
-            <section
-                className="container mx-auto my-12 flex flex-row justify-between items-center flex-initial gap-12">
-                <NavCategory props={categories}/>
-                <div className="flex flex-row gap-4">
-                    <Button icon={{iconName: "casino"}}/>
-                    <Button icon={{iconName: "tune"}} label="Filter"/>
-                </div>
-            </section>
             <section
                 className="container mx-auto mb-40 grid gap-6 xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2">
                 {restaurants.map((

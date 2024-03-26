@@ -3,7 +3,7 @@
 import React from "react"
 import Image from "next/image";
 import getEmoji from "@/app/lib/get-emoji";
-import Link from "next/link";
+import {Tab} from "@/app/components/tabs";
 
 export interface CategoryData {
     props: {
@@ -38,7 +38,7 @@ export const NavCategory: React.FC<CategoryData> = ({props}) => {
             <div className="flex flex-row gap-12 flex-nowrap items-center overflow-x-scroll scroll"
                  ref={scrollContainerRef}>
                 {props.map((item, key) => (
-                    <Link href={item.category_slug} key={item.category_id}>
+                    <Tab href={item.category_slug} key={item.category_id}>
                         <div className="CategoryContainer flex flex-col items-center py-2 gap-2 w-16 ">
                             <div className="relative">
                                 <Image
@@ -51,7 +51,7 @@ export const NavCategory: React.FC<CategoryData> = ({props}) => {
                             <span
                                 className="text-sm font-semibold uppercase tracking-wider text-nowrap">{item.category_name}</span>
                         </div>
-                    </Link>
+                    </Tab>
                 ))}
             </div>
             {/*<div className="absolute z-10 flex justify-between w-full h-full">*/}
