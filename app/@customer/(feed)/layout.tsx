@@ -1,14 +1,14 @@
 import React from "react";
-import ClientLayout from "@/app/@customer/(feed)/client-layout";
+import ClientLayout, {LayoutProps} from "@/app/@customer/(feed)/client-layout";
+import getData from "@/app/lib/get-data";
+import {CategoryData} from "@/app/lib/data-type";
 
-interface LayoutProps {
-    children: React.ReactNode
-    modalRestaurant: React.ReactNode
-    feed: React.ReactNode
-}
 
-export default function CustomerLayout(props: Readonly<LayoutProps>) {
+export default async function CustomerLayout(props: Readonly<LayoutProps>) {
+    const categoriesData: CategoryData[] = await getData('/api/categories.json')
+
     return (
-        <ClientLayout {...props} />
+        // @ts-ignore
+        <ClientLayout categories={categoriesData} {...props} />
     )
 }

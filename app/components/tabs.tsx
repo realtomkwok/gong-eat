@@ -39,7 +39,7 @@ export const Tab = React.forwardRef<
         <Ariakit.Tab
             id={id}
             className="tab"
-            render={<Link ref={ref} {...props} />}
+            render={<Link ref={ref} {...props}></Link>}
         />
     );
 });

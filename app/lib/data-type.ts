@@ -41,3 +41,10 @@ export interface OrderData {
     order_rating: number
     order_review: string
 }
+
+export interface CategoryData {
+    category_id: number
+    category_name: string
+    category_icon: string
+    category_slug: string
+}
