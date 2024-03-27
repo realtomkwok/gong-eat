@@ -5,15 +5,15 @@ import React from "react";
 import {motion} from "framer-motion";
 import {MaterialIcon} from "@/app/components/material-icon";
 import {emphasizedEasing_Medium} from "@/app/lib/motion-config";
+import {Button} from "@/app/components/button";
+import {useItemStore} from "@/app/providers/item-store-provider";
+import {MenuItemData} from "@/app/lib/data-type";
 
 interface CardProps {
-    props: {
-        title: string
-        subtitle: string
-        description?: string
-        rating?: number
-        imageSrc: string
-    }
+    title: string
+    subtitle: string
+    description?: string
+    imageSrc?: string
 }
 
 const Rating = (props: { rating: number }) => {
@@ -24,7 +24,7 @@ const Rating = (props: { rating: number }) => {
     </div>;
 }
 
-const CardContainer = ({children}: {children: React.ReactNode}) => {
+const CardContainer = ({children}: { children: React.ReactNode }) => {
     return (
         <motion.div
             className="CardContainer bg-surface border border-outlineVariant rounded-2xl overflow-hidden"
@@ -37,13 +37,18 @@ const CardContainer = ({children}: {children: React.ReactNode}) => {
     )
 }
 
-export const Card_Restaurant: React.FC<CardProps> = ({props}) => {
+interface CardRestaurantProps extends CardProps {
+    rating: number
+}
+
+export const Card_Restaurant: React.FC<CardRestaurantProps> = (props: CardRestaurantProps) => {
     return (
         <CardContainer>
             <div className="Card flex flex-col items-start self-stretch">
                 <div className="ImageContainer relative w-full aspect-square">
-                    <Image src={props.imageSrc} alt={props.title} fill style={{objectFit: "cover"}}
-                           sizes="500px, 500px"/>
+                    {props.imageSrc && <Image src={props.imageSrc} alt={props.title} fill style={{objectFit: "cover"}}
+                                              sizes="500px, 500px"/>}
+
                 </div>
                 <div className="TextContainer w-full flex flex-col gap-2 px-4 py-6 ">
                     <div className="flex flex-row items-baseline justify-between">
@@ -57,21 +62,40 @@ export const Card_Restaurant: React.FC<CardProps> = ({props}) => {
     )
 }
 
-export const Card_MenuItem: React.FC<CardProps> = ({props}) => {
+interface CardMenuItemProps extends CardProps {
+    rawData: MenuItemData
+}
+
+export const Card_MenuItem: React.FC<CardMenuItemProps> = (props: CardMenuItemProps) => {
+    const {items, addItem, removeItem} = useItemStore((state) => state,)
+    const itemCount = items.filter((item) => item.item_id === props.rawData.item_id && item.restaurant_id === props.rawData.restaurant_id).length
+
     return (
         <CardContainer>
-            <div className="Card flex flex-col items-start self-stretch">
-                <div className="ImageContainer relative w-full aspect-video">
-                    <Image src={props.imageSrc} alt={props.title} fill style={{objectFit: "cover"}}/>
+            <div className="ImageContainer relative w-full aspect-video">
+                {props.imageSrc && <Image src={props.imageSrc} alt={props.title} fill style={{objectFit: "cover"}}/>}
+            </div>
+            <div className="TextContainer w-full flex flex-col gap-2 px-4 py-6 min-h-40">
+                <div className="flex flex-row items-baseline justify-between">
+                    <p className="card-title">{props.title}</p>
+                    <p className="font-semibold text-base">{props.subtitle}</p>
                 </div>
-                <div className="TextContainer w-full flex flex-col gap-2 px-4 py-6 ">
-                    <div className="flex flex-row items-center justify-between">
-                        <p className="card-title">{props.title}</p>
-                        <p className="font-semibold text-base">{props.subtitle}</p>
-                    </div>
-                    {props.description &&
-                        <p className="text-base text-onSurfaceVariant leading-tight">{props.description}</p>}
-                </div>
+                {props.description &&
+                    <p className="text-base text-onSurfaceVariant leading-tight">{props.description}</p>}
+            </div>
+            <div
+                className="Stepper relative bottom-2 flex flex-row gap-8 items-center w-full justify-end px-4 py-4 flex-shrink-0">
+                {itemCount > 0 &&
+                    <>
+                        <Button className="RemoveItem" icon={{iconName: "remove"}} onClick={() => {
+                            removeItem(props.rawData)
+                        }}>-</Button>
+                        <span className="ItemAmount font-semibold">{itemCount}</span>
+                    </>
+                }
+                <Button className="AddItem" icon={{iconName: "add"}} onClick={() => {
+                    addItem(props.rawData)
+                }}>+</Button>
             </div>
         </CardContainer>
     )

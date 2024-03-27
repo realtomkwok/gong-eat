@@ -40,13 +40,12 @@ export default async function CategoryPage({params}: { params: { slug: string } 
                             href={url}
                             key={key}
                         >
-                            <Card_Restaurant props={{
-                                title: data.restaurant_name,
-                                subtitle: data.restaurant_category.join(' | '),
-                                description: data.restaurant_rating.toString(),
-                                imageSrc: data.restaurant_hero_image,
-                                rating: data.restaurant_rating
-                            }}/>
+                            <Card_Restaurant
+                                title={data.restaurant_name}
+                                subtitle={ data.restaurant_category.join(' | ')}
+                                imageSrc={data.restaurant_hero_image}
+                                rating={data.restaurant_rating}
+                            />
                         </Link>
                     )
                 })}

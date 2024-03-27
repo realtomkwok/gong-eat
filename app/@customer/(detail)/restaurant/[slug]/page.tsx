@@ -17,6 +17,7 @@ export default async function RestaurantPage({params}: { params: { slug: string 
         const groupedItems = groupItemsByKey(menuData, 'item_category')
         const menuCategories = Object.keys(groupedItems)
         const setByCategory: Set<MenuItemData>[] = menuCategories.map((category) => new Set(groupedItems[category]))
+
         return (
             <main className="bg-surfaceContainerHighContrast text-onSurface overscroll-none">
                 <div className="container mx-auto grid grid-cols-4 gap-6 p-12">
@@ -36,7 +37,9 @@ export default async function RestaurantPage({params}: { params: { slug: string 
                             </div>
                         </section>
                         <section className="flex flex-col gap-2.5 bg-surfaceContainer p-6 rounded-3xl">
-                            <div className="font-bold uppercase tracking-widest border-b border-outline pb-1 self-center">Menu</div>
+                            <div
+                                className="font-bold uppercase tracking-widest border-b border-outline pb-1 self-center">Menu
+                            </div>
                             {menuCategories.map((category, index) => (
                                 <Link href={`#${category}`} key={index}>
                                     <span className="card-subtitle uppercase hover:font-semibold">{category}</span>
@@ -53,12 +56,10 @@ export default async function RestaurantPage({params}: { params: { slug: string 
                                         <div className="grid grid-cols-3 gap-6">
                                             {[...category].map((item, index) => {
                                                 return (
-                                                    <Card_MenuItem key={index} props={{
-                                                        title: item.item_name,
-                                                        subtitle: `$${item.item_price}`,
-                                                        description: item.item_description,
-                                                        imageSrc: item.item_image
-                                                    }}/>
+                                                    <Card_MenuItem key={index} title={item.item_name}
+                                                                   subtitle={item.item_price.toString()}
+                                                                   description={item.item_description}
+                                                                   imageSrc={item.item_image} rawData={item}/>
                                                 )
                                             })}
                                         </div>

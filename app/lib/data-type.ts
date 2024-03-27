@@ -12,7 +12,7 @@ export interface RestaurantData {
 }
 
 export interface CustomerData {
-    customer_id: number
+    customer_id: UUID
     customer_name: string
     customer_phone: string
     customer_address: string
@@ -21,6 +21,7 @@ export interface CustomerData {
 }
 
 export interface MenuItemData {
+    restaurant_id: any;
     item_id: number
     item_name: string
     item_category: string
@@ -30,7 +31,7 @@ export interface MenuItemData {
 }
 
 export interface OrderData {
-    order_id: number
+    order_id: UUID
     customer_id: number
     restaurant_id: number
     // order_items: [MenuItemData]

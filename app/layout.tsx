@@ -3,6 +3,7 @@
 import type {Metadata} from "next";
 import "material-symbols/rounded.css"
 import "./globals.css";
+import {ItemStoreProvider} from "@/app/providers/item-store-provider";
 
 export const metadata: Metadata = {
     title: "Gong Eats",
@@ -19,7 +20,9 @@ export default function RootLayout({customer, business}: {
     return (
         <html lang="en">
         <body className="font-Sofia antialiased">
-        {userType === "customer" ? customer : business}
+        <ItemStoreProvider>
+            {userType === "customer" ? customer : business}
+        </ItemStoreProvider>
         </body>
         </html>
     );
