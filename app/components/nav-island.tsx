@@ -29,11 +29,11 @@ export default function NavIsland() {
 
     const groupedItems = Object.values(uniqueItemsWithCount)
 
-    const ShoppingBag: React.FC<MotionProps> = () => {
+    const ShoppingBag: React.FC<MotionProps> = ({...rest}) => {
         const {addItem, removeItem} = useItemStore((state) => state,)
 
         return (
-            <motion.div className="navIsland-base flex-col w-[640px] rounded-4xl">
+            <motion.div className="flex flex-col w-[640px] rounded-4xl gap-4" {...rest}>
                 <div className="grid grid-cols-2 w-full items-center">
                     <Button icon={{iconName: "close"}} className="w-fit justify-self-start"
                             onClick={() => setBagOpen(!bagIsOpen)}/>
@@ -88,9 +88,9 @@ export default function NavIsland() {
         )
     }
 
-    const Initial: React.FC<MotionProps> = () => {
+    const Initial: React.FC<MotionProps> = ({...rest}) => {
         return (
-            <motion.nav className="navIsland-base flex-row rounded-full ">
+            <motion.nav className="flex flex-row rounded-full gap-4" {...rest}>
                 <Button icon={{iconName: "account_circle"}}/>
                 <div className="flex px-2 pb-1 content-center items-center text-2xl font-bold tracking-widest">
                     <Link href="/">
@@ -108,11 +108,13 @@ export default function NavIsland() {
 
     return (
         <AnimatePresence>
-            {bagIsOpen
-                ? <ShoppingBag
-                />
-                : <Initial
-                />}
+            <motion.div className="navIsland-base rounded-4xl"
+                        initial={{translateX: "-50%"}}
+                        whileHover={{scale: 1.05}}>
+                {bagIsOpen
+                    ? <ShoppingBag />
+                    : <Initial initial={{width: 640, opacity: 0}} animate={{width: "max-content", opacity: 1}} exit={{width: 640, opacity: 1}}/>}
+            </motion.div>
         </AnimatePresence>
     )
 }
