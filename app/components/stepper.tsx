@@ -1,13 +1,15 @@
-'use client'
-
 import {Button} from "@/app/components/button";
+import React from "react";
 
-export const Stepper: React.FC = () => {
-    return (
-        <div className="flex flex-row gap-2.5">
-            <Button icon={{iconName: "plus", iconStyle: "rounded", weight: 600, opticalSize: 20}}/>
-            <span className="text-2xl font-semibold">1</span>
-            <Button icon={{iconName: "minus", iconStyle: "rounded", weight: 600, opticalSize: 20}}/>
-        </div>
-    )
+export default function Stepper(props: { itemCount: number, removeAction: () => void, addAction: () => void }) {
+    return <div
+        className="Stepper flex flex-row gap-8 items-center w-full flex-shrink-0">
+        {props.itemCount > 0 &&
+            <>
+                <Button className="RemoveItem" icon={{iconName: "remove"}} onClick={props.removeAction}>-</Button>
+                <span className="ItemAmount font-semibold">{props.itemCount}</span>
+            </>
+        }
+        <Button className="AddItem" icon={{iconName: "add"}} onClick={props.addAction}>+</Button>
+    </div>;
 }
