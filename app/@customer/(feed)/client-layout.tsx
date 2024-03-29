@@ -1,12 +1,14 @@
 'use client'
 
-import React from "react";
+import React, {useEffect} from "react";
 import {AnimatePresence, motion} from "framer-motion";
 import {TabPanel, Tabs} from "@/app/components/tabs";
 import {CategoryData} from "@/app/lib/data-type"
 import {Button} from "@/app/components/button";
 import TabCategory from "@/app/components/tab-category";
 import {usePathname} from "next/navigation";
+import NavIsland from "@/app/components/nav-island";
+import {useThemeStore} from "@/app/providers/theme-store-provider";
 
 export interface LayoutProps {
     children: React.ReactNode
@@ -17,9 +19,15 @@ export interface LayoutProps {
 
 export default function ClientLayout(props: LayoutProps) {
     const currentPathName = usePathname()
+    const {background, setBackground } = useThemeStore((state => state))
+
+    useEffect(() => {
+        setBackground("bg-surface")
+    })
 
     return (
-        <>
+        <div className="relative pt-32">
+            <NavIsland />
             <AnimatePresence mode="popLayout" initial={false}>
                 {props.children}
                 {props.modalRestaurant}
@@ -34,6 +42,6 @@ export default function ClientLayout(props: LayoutProps) {
                     <TabPanel>{props.feed}</TabPanel>
                 </Tabs>
             </AnimatePresence>
-        </>
+        </div>
     )
 }

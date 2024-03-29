@@ -15,7 +15,7 @@ export default async function CheckoutPage(props: CheckoutPageProps) {
     // const restaurants = await getData("/api/restaurants.json")
 
     return (
-        <div className="bg-surfaceContainer w-full text-onSurface">
+        <div className="w-full text-onSurface">
             <div className="container mx-auto py-16">
                 <h1 className="font-semibold text-6xl tracking-tighter pb-16">Checkout</h1>
                 <div className="grid grid-cols-5 gap-6">

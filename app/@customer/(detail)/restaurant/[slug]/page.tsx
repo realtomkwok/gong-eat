@@ -5,6 +5,8 @@ import getID from "@/app/lib/get-id";
 import groupItemsByKey from "@/app/lib/group-items";
 import Link from "next/link";
 import {RestaurantData, MenuItemData} from "@/app/lib/data-type";
+import {useThemeStore} from "@/app/providers/theme-store-provider";
+import {state} from "sucrase/dist/types/parser/traverser/base";
 
 export default async function RestaurantPage({params}: { params: { slug: string } }) {
 
@@ -19,10 +21,10 @@ export default async function RestaurantPage({params}: { params: { slug: string 
         const setByCategory: Set<MenuItemData>[] = menuCategories.map((category) => new Set(groupedItems[category]))
 
         return (
-            <main className="bg-surfaceContainer text-onSurfaceContainer overscroll-none w-full">
+            <main className="text-onSurfaceContainer overscroll-none w-full">
                 <div className="container mx-auto grid grid-cols-4 gap-6">
                     <div className="col-span-1 flex flex-col gap-6 sticky top-28 h-fit">
-                        <section className="flex flex-col gap-2.5 bg-surfaceBright p-6 rounded-3xl">
+                        <section className="flex flex-col gap-2.5 bg-surfaceContainer p-6 rounded-3xl">
                             <h1 className="font-semibold text-4xl tracking-tight">{restaurantData.restaurant_name}</h1>
                             <div className="flex flex-row justify-between items-center">
                                 <div>
@@ -36,7 +38,7 @@ export default async function RestaurantPage({params}: { params: { slug: string 
                                 </div>
                             </div>
                         </section>
-                        <section className="flex flex-col gap-2.5 bg-surfaceBright p-6 rounded-3xl">
+                        <section className="flex flex-col gap-2.5 bg-surfaceContainer p-6 rounded-3xl">
                             <div
                                 className="font-bold uppercase tracking-widest border-b border-outline pb-1 self-center">Menu
                             </div>
@@ -47,7 +49,7 @@ export default async function RestaurantPage({params}: { params: { slug: string 
                             ))}
                         </section>
                     </div>
-                    <div className="col-span-3 bg-surfaceBright text-onSurface rounded-3xl p-6">
+                    <div className="col-span-3 bg-surface text-onSurface rounded-3xl p-6">
                         <section className="flex flex-col gap-8">
                             {setByCategory.map((category, index) => {
                                 return (
