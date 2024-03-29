@@ -8,8 +8,10 @@ export default function CustomerLayout({children}: {children: React.ReactNode}) 
     return (
         <div className="bg-surface min-h-screen">
             <NavIsland />
-            {children}
-            <footer className="p-6"/>
+            <main className="pt-32">
+                {children}
+            </main>
+            <footer className="p-6">Footer</footer>
         </div>
     )
 }

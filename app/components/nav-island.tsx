@@ -9,37 +9,29 @@ import Image from "next/image";
 import {MenuItemData} from "@/app/lib/data-type";
 import Stepper from "@/app/components/stepper";
 import {motion, AnimatePresence, MotionProps} from "framer-motion";
+import getItems from "@/app/lib/get-items";
 
 export default function NavIsland() {
     const {totalCount, items} = useItemStore((state) => state)
     const [bagIsOpen, setBagOpen] = useState(false)
 
-    let totalPrice = 0
-    items.forEach((item) => totalPrice += item.item_price)
-
-    let uniqueItemsWithCount: { [key: string]: { itemData: MenuItemData, count: number } } = {}
-
-    items.forEach((item) => {
-        if (uniqueItemsWithCount[item.item_id]) {
-            uniqueItemsWithCount[item.item_id].count += 1;
-        } else {
-            uniqueItemsWithCount[item.item_id] = {itemData: item, count: 1};
-        }
-    })
-
-    const groupedItems = Object.values(uniqueItemsWithCount)
+    const totalPrice = getItems(items).totalPrice
+    const groupedItems = getItems(items).groupedItems
 
     const ShoppingBag: React.FC<MotionProps> = ({...rest}) => {
         const {addItem, removeItem} = useItemStore((state) => state,)
 
         return (
             <motion.div className="flex flex-col w-[640px] rounded-4xl gap-4" {...rest}>
-                <div className="grid grid-cols-2 w-full items-center">
+                <div className="flex flex-row justify-between w-full items-center">
                     <Button icon={{iconName: "close"}} className="w-fit justify-self-start"
                             onClick={() => setBagOpen(!bagIsOpen)}/>
-                    <Button icon={{iconName: "arrow_forward"}}
-                            btnStyle={{color: "bg-primary", textColor: "text-onPrimary", stateColor: "bg-statePrimary"}}
-                            label="Checkout" className="w-fit justify-self-end" disabled={totalCount === 0}/>
+                    <Link href="/checkout" onClick={() => setBagOpen(false)}>
+                        <Button icon={{iconName: "arrow_forward"}}
+                                btnStyle={{color: "bg-primary", textColor: "text-onPrimary", stateColor: "bg-statePrimary"}}
+                                label="Checkout" className="w-fit justify-self-end" disabled={totalCount === 0} />
+                    </Link>
+
                 </div>
                 <div className="w-full">
                     <div
@@ -54,10 +46,8 @@ export default function NavIsland() {
                         </div>
                     </div>
                     <ul className="flex flex-col gap-2 py-2">
-                        {groupedItems.map((items, key) => {
-                            const item = items
-                            // const itemCount = items.length
-                            const itemSubtotal = items.itemData.item_price * item.count
+                        {groupedItems.map((item, key) => {
+                            const itemSubtotal = item.itemData.item_price * item.count
 
                             return (
                                 <li className="group rounded-2xl bg-surface overflow-clip" key={key}>
@@ -109,8 +99,9 @@ export default function NavIsland() {
     return (
         <AnimatePresence>
             <motion.div className="navIsland-base rounded-4xl"
-                        initial={{translateX: "-50%"}}
-                        whileHover={{scale: 1.05}}>
+                        // initial={{translateX: "-50%"}}
+                        // whileHover={{scale: 1.02}}
+            >
                 {bagIsOpen
                     ? <ShoppingBag />
                     : <Initial initial={{width: 640, opacity: 0}} animate={{width: "max-content", opacity: 1}} exit={{width: 640, opacity: 1}}/>}

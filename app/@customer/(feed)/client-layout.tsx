@@ -24,7 +24,7 @@ export default function ClientLayout(props: LayoutProps) {
                 {props.children}
                 {props.modalRestaurant}
                 <Tabs>
-                    <div className="TabsContainer container mx-auto flex justify-around gap-12 mt-16 mb-8">
+                    <div className="TabsContainer container mx-auto flex justify-around gap-12 pb-8">
                         <TabCategory categories={props.categories} currentPath={currentPathName}/>
                         <div className="flex flex-row gap-4">
                             <Button icon={{iconName: "casino"}} />

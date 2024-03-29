@@ -13,6 +13,12 @@ const config: Config = {
         "primary": "rgba(134, 83, 25, 1)",
         "statePrimary": "rgba(134, 83, 25, 0.08)",
         "onPrimary": "rgba(255, 255, 255, 1)",
+        // Secondary
+        "secondary": "rgba(115, 89, 66, 1)",
+        "onSecondary": "rgba(255, 255, 255, 1)",
+        // Tertiary
+        "tertiary": "rgba(89, 99, 57, 1)",
+        "onTertiary": "rgba(255, 255, 255, 1)",
         // Secondary Container
         "secondaryContainer": "rgba(255, 220, 191, 1)",
         "onSecondaryContainer": "rgba(41, 24, 6, 1)",
@@ -21,6 +27,10 @@ const config: Config = {
         "surface": "rgba(255, 248, 245, 1)",
         "stateOnSurface": "rgba(255, 248, 245, 0.08)",
         "onSurface": "rgba(33, 26, 20, 1)",
+        // Surface Dim
+        "surfaceDim": "rgba(230, 215, 205, 1)",
+        // Surface Bright
+        "surfaceBright": "rgba(255, 248, 245, 1)",
         // Surface Tint
         "surfaceTint": "rgba(134, 83, 25, 1)",
         // Surface Variant
@@ -41,6 +51,8 @@ const config: Config = {
         // Disabled Surface
         "disabledSurface": "rgba(33, 26, 20, 0.12)",
         "onDisabledSurface": "rgba(33, 26, 20, 0.38)",
+        // Scrim
+        "scrim": "rgba(0, 0, 0, 0.4)",
 
       },
       fontFamily: {

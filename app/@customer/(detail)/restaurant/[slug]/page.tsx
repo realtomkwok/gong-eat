@@ -19,10 +19,10 @@ export default async function RestaurantPage({params}: { params: { slug: string 
         const setByCategory: Set<MenuItemData>[] = menuCategories.map((category) => new Set(groupedItems[category]))
 
         return (
-            <main className="bg-surfaceContainerHighContrast text-onSurface overscroll-none">
-                <div className="container mx-auto grid grid-cols-4 gap-6 p-12">
+            <main className="bg-surfaceContainer text-onSurfaceContainer overscroll-none w-full">
+                <div className="container mx-auto grid grid-cols-4 gap-6">
                     <div className="col-span-1 flex flex-col gap-6 sticky top-28 h-fit">
-                        <section className="flex flex-col gap-2.5 bg-surfaceContainer p-6 rounded-3xl">
+                        <section className="flex flex-col gap-2.5 bg-surfaceBright p-6 rounded-3xl">
                             <h1 className="font-semibold text-4xl tracking-tight">{restaurantData.restaurant_name}</h1>
                             <div className="flex flex-row justify-between items-center">
                                 <div>
@@ -36,7 +36,7 @@ export default async function RestaurantPage({params}: { params: { slug: string 
                                 </div>
                             </div>
                         </section>
-                        <section className="flex flex-col gap-2.5 bg-surfaceContainer p-6 rounded-3xl">
+                        <section className="flex flex-col gap-2.5 bg-surfaceBright p-6 rounded-3xl">
                             <div
                                 className="font-bold uppercase tracking-widest border-b border-outline pb-1 self-center">Menu
                             </div>
@@ -47,7 +47,7 @@ export default async function RestaurantPage({params}: { params: { slug: string 
                             ))}
                         </section>
                     </div>
-                    <div className="col-span-3 bg-surface text-onSurface rounded-3xl p-6">
+                    <div className="col-span-3 bg-surfaceBright text-onSurface rounded-3xl p-6">
                         <section className="flex flex-col gap-8">
                             {setByCategory.map((category, index) => {
                                 return (
