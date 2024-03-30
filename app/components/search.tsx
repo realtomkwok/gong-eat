@@ -9,8 +9,8 @@ export default function Search({placeholder}: { placeholder: string }) {
     }
 
     return (
-        <div className="input-base min-w-90 bg-secondaryContainer">
-            <div className="StateLayer hover:bg-stateOnSecondaryContainer transition-all h-full">
+        <div className="input-base min-w-90 bg-surfaceContainer">
+            <div className="StateLayer hover:bg-stateSurfaceContainer transition-all h-full">
                 <div className="flex flex-row justify-center items-center py-2 px-4 gap-2 self-stretch">
                     <MaterialIcon iconName={"search"} iconStyle={"rounded"} weight={600} opticalSize={20}
                                   fontSize={24}/>

@@ -7,8 +7,6 @@ import {Card_Restaurant} from "@/app/components/card";
 export default async function CategoryPage({params}: { params: { slug: string } }) {
     const currentCategory = params.slug
     const allRestaurants = await getData('/api/restaurants.json')
-    const categories = await getData('/api/categories.json')
-
 
     let restaurants: RestaurantData[]
 
@@ -23,7 +21,7 @@ export default async function CategoryPage({params}: { params: { slug: string } 
     return (
         <>
             <section
-                className="container mx-auto mb-40 grid gap-6 xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2">
+                className="container mx-auto grid gap-6 xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2">
                 {restaurants.map((
                     data: RestaurantData,
                     key: number

@@ -1,7 +1,6 @@
-import {UUID} from "node:crypto";
 
 export interface RestaurantData {
-    restaurant_id: UUID
+    restaurant_id: number
     restaurant_name: string
     restaurant_address: string
     restaurant_phone: string
@@ -12,7 +11,7 @@ export interface RestaurantData {
 }
 
 export interface CustomerData {
-    customer_id: UUID
+    customer_id: number
     customer_name: string
     customer_phone: string
     customer_address: string
@@ -31,10 +30,13 @@ export interface MenuItemData {
 }
 
 export interface OrderData {
-    order_id: UUID
+    order_id: number
     customer_id: number
     restaurant_id: number
-    // order_items: [MenuItemData]
+    order_items: {
+        item_id: number
+        item_quantity: number
+    }[]
     order_status: "confirmed" | "accepted" | "rejected" | "delivered"
     order_subtotal: number
     comment: string

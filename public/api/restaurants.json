@@ -1,6 +1,6 @@
 [
     {
-        "restaurant_id": "3f2504e0-4f89-11d3-9a0c-0305e82c3301",
+        "restaurant_id": 1,
         "restaurant_name": "Bamboo Garden Chinese",
         "restaurant_address": "45 Crown Street, Wollongong NSW 2500",
         "restaurant_phone": "0242112345",
@@ -10,7 +10,7 @@
         "restaurant_rating": 4.5
     },
     {
-        "restaurant_id": "3f2504e0-4f89-11d3-9a0c-0305e82c3302",
+        "restaurant_id": 2,
         "restaurant_name": "Taj Mahal Indian Cuisine",
         "restaurant_address": "18 Corrimal Street, Wollongong NSW 2500",
         "restaurant_phone": "0242123456",
@@ -20,7 +20,7 @@
         "restaurant_rating": 4.3
     },
     {
-        "restaurant_id": "3f2504e0-4f89-11d3-9a0c-0305e82c3303",
+        "restaurant_id": 3,
         "restaurant_name": "Roma Pizzeria",
         "restaurant_address": "32 Burelli Street, Wollongong NSW 2500",
         "restaurant_phone": "0242134567",
@@ -30,7 +30,7 @@
         "restaurant_rating": 4.1
     },
     {
-        "restaurant_id": "3f2504e0-4f89-11d3-9a0c-0305e82c3304",
+        "restaurant_id": 4,
         "restaurant_name": "Sakura Sushi",
         "restaurant_address": "50 Kembla Street, Wollongong NSW 2500",
         "restaurant_phone": "0242145678",
@@ -40,7 +40,7 @@
         "restaurant_rating": 4.6
     },
     {
-        "restaurant_id": "3f2504e0-4f89-11d3-9a0c-0305e82c3305",
+        "restaurant_id": 5,
         "restaurant_name": "Pasta Bella",
         "restaurant_address": "78 Keira Street, Wollongong NSW 2500",
         "restaurant_phone": "0242156789",
@@ -50,7 +50,7 @@
         "restaurant_rating": 3.9
     },
     {
-        "restaurant_id": "3f2504e0-4f89-11d3-9a0c-0305e82c3306",
+        "restaurant_id": 6,
         "restaurant_name": "Green Leaves Vegan",
         "restaurant_address": "62 Market Street, Wollongong NSW 2500",
         "restaurant_phone": "0242167890",
@@ -60,7 +60,7 @@
         "restaurant_rating": 4.0
     },
     {
-        "restaurant_id": "3f2504e0-4f89-11d3-9a0c-0305e82c3307",
+        "restaurant_id": 7,
         "restaurant_name": "El Mexicano Loco",
         "restaurant_address": "15 Cliff Road, Wollongong NSW 2500",
         "restaurant_phone": "0242178901",
@@ -70,7 +70,7 @@
         "restaurant_rating": 4.2
     },
     {
-        "restaurant_id": "3f2504e0-4f89-11d3-9a0c-0305e82c3308",
+        "restaurant_id": 8,
         "restaurant_name": "Bangkok Express",
         "restaurant_address": "88 Smith Street, Wollongong NSW 2500",
         "restaurant_phone": "0242189012",
@@ -80,7 +80,7 @@
         "restaurant_rating": 3.8
     },
     {
-        "restaurant_id": "3f2504e0-4f89-11d3-9a0c-0305e82c3309",
+        "restaurant_id": 9,
         "restaurant_name": "Speedy Burgers",
         "restaurant_address": "20 Crown Lane, Wollongong NSW 2500",
         "restaurant_phone": "0242190123",
@@ -90,7 +90,7 @@
         "restaurant_rating": 4.4
     },
     {
-        "restaurant_id": "3f2504e0-4f89-11d3-9a0c-0305e82c3310",
+        "restaurant_id": 10,
         "restaurant_name": "Morning Glory Bakery",
         "restaurant_address": "5 Harbour Street, Wollongong NSW 2500",
         "restaurant_phone": "0242101234",
@@ -100,7 +100,7 @@
         "restaurant_rating": 4.7
     },
     {
-        "restaurant_id": "3f2504e0-4f89-11d3-9a0c-0305e82c3311",
+        "restaurant_id": 12,
         "restaurant_name": "Healthy Bites Cafe",
         "restaurant_address": "34 Marine Drive, Wollongong NSW 2500",
         "restaurant_phone": "0242212345",
@@ -110,7 +110,7 @@
         "restaurant_rating": 3.5
     },
     {
-        "restaurant_id": "3f2504e0-4f89-11d3-9a0c-0305e82c3312",
+        "restaurant_id": 13,
         "restaurant_name": "Dragon Noodle House",
         "restaurant_address": "12 Young Street, Wollongong NSW 2500",
         "restaurant_phone": "0242323456",

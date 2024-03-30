@@ -4,8 +4,9 @@ import {useRouter} from 'next/navigation'
 import {motion} from "framer-motion";
 import {Button} from "@/app/components/button";
 import FrozenRouter from "@/app/components/frozen-router";
-import {MouseEventHandler, useCallback, useRef} from "react";
+import {MouseEventHandler, useCallback, useEffect, useRef} from "react";
 import {emphasizedEasing_Long} from "@/app/lib/motion-config";
+import {useThemeStore} from "@/app/providers/theme-store-provider";
 
 export default function Modal({children}: { children: React.ReactNode }) {
     const overlay = useRef(null)
@@ -35,7 +36,7 @@ export default function Modal({children}: { children: React.ReactNode }) {
 
     return (
         <motion.div ref={overlay} initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}
-                    className="absolute top-0 left-0 w-full bg-scrim z-40 flex justify-center items-center"
+                    className="absolute top-0 left-0 w-full z-40 flex justify-center items-center bg-scrim"
                     onClick={onClick}>
             <motion.div ref={wrapper}
                         variants={modal}
@@ -43,8 +44,8 @@ export default function Modal({children}: { children: React.ReactNode }) {
                         animate="open"
                         exit="closed"
                         transition={emphasizedEasing_Long}
-                        className="subtract-nav mt-12 transform relative rounded-4xl w-full bg-surfaceContainer">
-                    <Button icon={{iconName: "close"}} className="sticky my-6 ml-8 top-28" onClick={() => {router.back()}}/>
+                        className="subtract-nav mt-12 transform relative rounded-4xl w-full bg-surfaceDim">
+                    <Button icon={{iconName: "arrow_back"}} className="sticky my-6 ml-8 top-8" onClick={() => {router.back()}}/>
                 <FrozenRouter>{children}</FrozenRouter>
             </motion.div>
         </motion.div>

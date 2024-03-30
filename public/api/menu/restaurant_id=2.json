@@ -1,7 +1,7 @@
 [
     {
         "item_id": 1,
-        "restaurant_id": "3f2504e0-4f89-11d3-9a0c-0305e82c3312",
+        "restaurant_id": 12,
         "item_name": "Kung Pao Chicken",
         "item_category": "Entree",
         "item_description": "Spicy stir-fried chicken with peanuts, vegetables, and chili peppers.",
@@ -10,7 +10,7 @@
     },
     {
         "item_id": 2,
-        "restaurant_id": "3f2504e0-4f89-11d3-9a0c-0305e82c3312",
+        "restaurant_id": 12,
         "item_name": "Beef and Broccoli",
         "item_category": "Main Course",
         "item_description": "Tender beef and fresh broccoli in a ginger soy sauce.",
@@ -19,7 +19,7 @@
     },
     {
         "item_id": 3,
-        "restaurant_id": "3f2504e0-4f89-11d3-9a0c-0305e82c3312",
+        "restaurant_id": 12,
         "item_name": "Sweet and Sour Pork",
         "item_category": "Main Course",
         "item_description": "Crispy pork, pineapple, and bell peppers in a tangy sauce.",
@@ -28,7 +28,7 @@
     },
     {
         "item_id": 4,
-        "restaurant_id": "3f2504e0-4f89-11d3-9a0c-0305e82c3312",
+        "restaurant_id": 12,
         "item_name": "Ma Po Tofu",
         "item_category": "Entree",
         "item_description": "Soft tofu in a spicy and savory Sichuan sauce with minced meat.",
@@ -37,7 +37,7 @@
     },
     {
         "item_id": 5,
-        "restaurant_id": "3f2504e0-4f89-11d3-9a0c-0305e82c3312",
+        "restaurant_id": 12,
         "item_name": "Peking Duck",
         "item_category": "Entree",
         "item_description": "Roasted duck with crispy skin, served with pancakes, spring onions, and hoisin sauce.",
@@ -46,7 +46,7 @@
     },
     {
         "item_id": 6,
-        "restaurant_id": "3f2504e0-4f89-11d3-9a0c-0305e82c3312",
+        "restaurant_id": 12,
         "item_name": "Hot and Sour Soup",
         "item_category": "Soup",
         "item_description": "A rich, tangy soup with mushrooms, tofu, bamboo shoots, and egg.",
@@ -55,7 +55,7 @@
     },
     {
         "item_id": 7,
-        "restaurant_id": "3f2504e0-4f89-11d3-9a0c-0305e82c3312",
+        "restaurant_id": 12,
         "item_name": "Fried Rice",
         "item_category": "Main Course",
         "item_description": "Classic fried rice with eggs, peas, carrots, and green onions.",
@@ -64,7 +64,7 @@
     },
     {
         "item_id": 8,
-        "restaurant_id": "3f2504e0-4f89-11d3-9a0c-0305e82c3312",
+        "restaurant_id": 12,
         "item_name": "Dumplings",
         "item_category": "Main Course",
         "item_description": "Steamed or fried dumplings filled with pork and vegetables.",
@@ -73,7 +73,7 @@
     },
     {
         "item_id": 9,
-        "restaurant_id": "3f2504e0-4f89-11d3-9a0c-0305e82c3312",
+        "restaurant_id": 12,
         "item_name": "Spring Rolls",
         "item_category": "Appetizer",
         "item_description": "Crispy rolls filled with vegetables and sometimes meat, served with dipping sauce.",
@@ -82,7 +82,7 @@
     },
     {
         "item_id": 10,
-        "restaurant_id": "3f2504e0-4f89-11d3-9a0c-0305e82c3312",
+        "restaurant_id": 12,
         "item_name": "Moo Shu Pork",
         "item_category": "Main Course",
         "item_description": "Shredded pork with vegetables and hoisin sauce, served with thin pancakes.",

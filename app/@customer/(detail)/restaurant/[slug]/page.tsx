@@ -5,12 +5,10 @@ import getID from "@/app/lib/get-id";
 import groupItemsByKey from "@/app/lib/group-items";
 import Link from "next/link";
 import {RestaurantData, MenuItemData} from "@/app/lib/data-type";
-import {useThemeStore} from "@/app/providers/theme-store-provider";
-import {state} from "sucrase/dist/types/parser/traverser/base";
 
 export default async function RestaurantPage({params}: { params: { slug: string } }) {
 
-    const restaurantID = getID(params.slug)
+    const restaurantID = Number(getID(params.slug))
     const restaurantData: RestaurantData | undefined = await getData(`/api/restaurants.json`)
         .then((data: RestaurantData[]) => data.find((restaurant: RestaurantData) => restaurant.restaurant_id === restaurantID))
     const menuData: MenuItemData[] | undefined = await getData(`/api/menu/restaurant_id=${restaurantID}.json`)

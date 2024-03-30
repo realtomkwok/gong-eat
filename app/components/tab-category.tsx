@@ -7,7 +7,7 @@ import {CategoryData} from "@/app/lib/data-type";
 
 export default function TabCategory(props: { categories: CategoryData[], currentPath: string }) {
     return (
-        <TabList className="h-full flex flex-row gap-12 flex-nowrap items-center overflow-x-scroll scroll">
+        <TabList className="h-full flex flex-row gap-12 flex-nowrap items-center overflow-x-scroll scroll mt-24 ">
             {props.currentPath != "/" && (
                 <Tab href="/">
                     <Button icon={{iconName: "arrow_back"}} label="all" className="uppercase"></Button>

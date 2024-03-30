@@ -13,6 +13,9 @@ const config: Config = {
         "primary": "rgba(134, 83, 25, 1)",
         "statePrimary": "rgba(134, 83, 25, 0.08)",
         "onPrimary": "rgba(255, 255, 255, 1)",
+        // Primary Fixed
+        "primaryFixed": "rgba(255, 220, 191, 1)",
+        "onPrimaryFixed": "rgba(45, 22, 0, 1)",
         // Secondary
         "secondary": "rgba(115, 89, 66, 1)",
         "onSecondary": "rgba(255, 255, 255, 1)",
@@ -39,6 +42,7 @@ const config: Config = {
         "onSurfaceVariant": "rgba(81, 68, 58, 1)",
         // Surface Container
         "surfaceContainer": "rgba(250, 235, 224, 1)",
+        "stateSurfaceContainer": "rgba(250, 235, 224, 0.08)",
         "surfaceContainerHighContrast": "rgba(245, 229, 219, 1)",
         "onSurfaceContainer": "rgba(33, 26, 20, 1)",
         // Outline

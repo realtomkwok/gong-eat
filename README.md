@@ -2,15 +2,15 @@
 
 ## Roadmaps
 
-This roadmap describes the current, future and the past goals for both *Customers* and *Restaurants* apps of Gong Eats 
+This roadmap describes the current, future and the past goals for both *Customers* and *Restaurants* apps of Gong Eats
 
 ### Customers
 
 - [x]  Browse a list of restaurants
 - [x]  Browse the menu of a restaurant
-- [ ]  Filter restaurants by selecting category
+- [x]  Filter restaurants by selecting category
 - [ ]  Filter restaurants by searching keywords
-- [ ]  Shopping Bag
+- [x]  Shopping Bag
 - [ ]  Placing orders and payment
 
 ### Restaurants

@@ -6,10 +6,10 @@ import Search from "@/app/components/search";
 import React, {useState} from "react";
 import {useItemStore} from "@/app/providers/item-store-provider";
 import Image from "next/image";
-import {MenuItemData} from "@/app/lib/data-type";
 import Stepper from "@/app/components/stepper";
 import {motion, AnimatePresence, MotionProps} from "framer-motion";
-import getItems from "@/app/lib/get-items";
+import getItems from "@/app/lib/get-bag-items";
+import {emphasizedEasing_Long, emphasizedEasing_Medium} from "@/app/lib/motion-config";
 
 export default function NavIsland() {
     const {totalCount, items} = useItemStore((state) => state)
@@ -24,12 +24,25 @@ export default function NavIsland() {
         return (
             <motion.div className="flex flex-col w-[640px] rounded-4xl gap-4" {...rest}>
                 <div className="flex flex-row justify-between w-full items-center">
-                    <Button icon={{iconName: "close"}} className="w-fit justify-self-start"
+                    <Button icon={{iconName: "close"}}
+                            btnStyle={{
+                                color: "bg-surfaceContainer",
+                                stateColor: "bg-stateSurfaceVariant",
+                                textColor: "bg-onSurfaceContainer"
+                            }}
+                            className="w-fit justify-self-start"
                             onClick={() => setBagOpen(!bagIsOpen)}/>
-                    <Link href="/checkout" onClick={() => setBagOpen(false)}>
+                    <Link href={"/checkout"} onClick={() =>
+                        setBagOpen(false)
+                        // TODO: Add a function to create a new order
+                    }>
                         <Button icon={{iconName: "arrow_forward"}}
-                                btnStyle={{color: "bg-primary", textColor: "text-onPrimary", stateColor: "bg-statePrimary"}}
-                                label="Checkout" className="w-fit justify-self-end" disabled={totalCount === 0} />
+                                btnStyle={{
+                                    color: "bg-primary",
+                                    textColor: "text-onPrimary",
+                                    stateColor: "bg-statePrimary"
+                                }}
+                                label="Checkout" className="w-fit justify-self-end" disabled={totalCount === 0}/>
                     </Link>
 
                 </div>
@@ -51,7 +64,7 @@ export default function NavIsland() {
 
                             return (
                                 <li className="group rounded-2xl bg-surface overflow-clip" key={key}>
-                                    <div className="StateLayer hover:bg-surfaceVariant transition-all">
+                                    <div className="StateLayer hover:bg-primaryFixed hover:text-onPrimaryFixed transition-all">
                                         <div className="flex flex-row p-4 w-full">
                                             <Image className="aspect-square object-cover rounded-lg mr-4"
                                                    src={item.itemData.item_image} alt={item.itemData.item_name}
@@ -80,8 +93,12 @@ export default function NavIsland() {
 
     const Initial: React.FC<MotionProps> = ({...rest}) => {
         return (
-            <motion.nav className="flex flex-row rounded-full gap-4" {...rest}>
-                <Button icon={{iconName: "account_circle"}}/>
+            <motion.nav className="flex flex-row rounded-full gap-4 w-fit" {...rest}>
+                <Button icon={{iconName: "account_circle"}} btnStyle={{
+                    color: "bg-surfaceContainer",
+                    stateColor: "bg-stateSurfaceVariantContainer",
+                    textColor: "bg-onSurfaceContainer"
+                }}/>
                 <div className="flex px-2 pb-1 content-center items-center text-2xl font-bold tracking-widest">
                     <Link href="/">
                         <span>GONG EATS</span>
@@ -89,7 +106,12 @@ export default function NavIsland() {
                 </div>
                 {/*<Button icon={{iconName: "location_on"}} label={deliveryAddress}/>*/}
                 <Search placeholder={"Cuisine, Restaurants, etc..."}/> {/* TODO: Add search functionality */}
-                <Button icon={{iconName: "shopping_basket"}} label={totalCount}
+                <Button icon={{iconName: "shopping_basket"}} btnStyle={{
+                    color: "bg-surfaceContainer",
+                    stateColor: "bg-stateSurfaceVariant",
+                    textColor: "bg-onSurfaceContainer"
+                }}
+                        label={totalCount}
                         onClick={() => setBagOpen(!bagIsOpen)}/>
             </motion.nav>
         )
@@ -98,13 +120,16 @@ export default function NavIsland() {
 
     return (
         <AnimatePresence>
-            <motion.div className="navIsland-base rounded-4xl"
-                        // initial={{translateX: "-50%"}}
-                        // whileHover={{scale: 1.02}}
+            <motion.div
+                className="flex fixed px-4 py-3 top-6 left-1/2 -translate-x-1/2 z-50 justify-center min-w-96 bg-surfaceVariant text-onSurfaceVariant rounded-4xl"
+                initial={{width: 800, opacity: 0}}
+                animate={{width: "fit-content", minWidth: "fit-content", opacity: 1}}
+                transition={emphasizedEasing_Long}
+                exit={{width: 640, opacity: 1}}
             >
                 {bagIsOpen
-                    ? <ShoppingBag />
-                    : <Initial initial={{width: 640, opacity: 0}} animate={{width: "max-content", opacity: 1}} exit={{width: 640, opacity: 1}}/>}
+                    ? <ShoppingBag/>
+                    : <Initial />}
             </motion.div>
         </AnimatePresence>
     )

@@ -19,28 +19,32 @@ export interface LayoutProps {
 
 export default function ClientLayout(props: LayoutProps) {
     const currentPathName = usePathname()
-    const {background, setBackground } = useThemeStore((state => state))
+    const { setBackground } = useThemeStore((state => state))
 
     useEffect(() => {
-        setBackground("bg-surface")
+        setBackground("bg-surfaceContainer")
     })
 
     return (
-        <div className="relative pt-32">
+        <div className="relative">
             <NavIsland />
             <AnimatePresence mode="popLayout" initial={false}>
-                {props.children}
-                {props.modalRestaurant}
-                <Tabs>
-                    <div className="TabsContainer container mx-auto flex justify-around gap-12 pb-8">
-                        <TabCategory categories={props.categories} currentPath={currentPathName}/>
-                        <div className="flex flex-row gap-4">
-                            <Button icon={{iconName: "casino"}} />
-                            <Button icon={{iconName: "filter_list"}} label="Filter" className="uppercase" />
+                <div className="container mx-auto">
+                    {props.children}
+                    {props.modalRestaurant}
+                    <Tabs>
+                        <div className="TabsContainer container mx-auto flex justify-around gap-12 p-8 ">
+                            <TabCategory categories={props.categories} currentPath={currentPathName}/>
+                            <div className="flex flex-row gap-4 mt-24 ">
+                                <Button icon={{iconName: "casino"}} />
+                                <Button icon={{iconName: "filter_list"}} label="Filter" className="uppercase" />
+                            </div>
                         </div>
-                    </div>
-                    <TabPanel>{props.feed}</TabPanel>
-                </Tabs>
+                        <div className="bg-surface rounded-4xl p-6">
+                            <TabPanel>{props.feed}</TabPanel>
+                        </div>
+                    </Tabs>
+                </div>
             </AnimatePresence>
         </div>
     )

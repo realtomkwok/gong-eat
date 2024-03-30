@@ -7,7 +7,7 @@ export default function Stepper(props: { itemCount: number, removeAction: () => 
         {props.itemCount > 0 &&
             <>
                 <Button className="RemoveItem" icon={{iconName: "remove"}} onClick={props.removeAction}>-</Button>
-                <span className="ItemAmount font-semibold">{props.itemCount}</span>
+                <span className="ItemQuantity font-semibold">{props.itemCount}</span>
             </>
         }
         <Button className="AddItem" icon={{iconName: "add"}} onClick={props.addAction}>+</Button>

@@ -1,0 +1,22 @@
+{
+  "order_id": 1,
+  "customer_id": 1,
+  "restaurant_id": 1,
+  "delivery_person_id": 1,
+  "order_items": [
+    {
+      "item_id": 1,
+      "item_quantity": 2
+    },
+    {
+      "item_id": 2,
+      "item_quantity": 1
+    }
+  ],
+  "order_subtotal": 120.24,
+  "order_status": "confirmed",
+  "order_rating": 4,
+  "order_review": "good",
+  "order_service_fee": 10.00,
+  "create_time": "2021-03-01T12:00:00"
+}

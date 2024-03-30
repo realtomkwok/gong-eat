@@ -42,10 +42,6 @@ body {
     @apply top-[84px]
   }
 
-  .navIsland-base {
-    @apply fixed px-4 py-3 top-6 left-1/2 -translate-x-1/2 z-50 w-max min-w-96 bg-surfaceContainer text-onSurface
-  }
-
   .input-base {
     @apply font-semibold text-base rounded-full overflow-hidden;
   }
