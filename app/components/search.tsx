@@ -1,11 +1,23 @@
 "use client"
 
 import {MaterialIcon} from "@/app/components/material-icon";
+import {useSearchParams, usePathname, useRouter} from "next/navigation";
 import React from "react";
 
 export default function Search({placeholder}: { placeholder: string }) {
+    const searchParams = useSearchParams()
+    const pathname = usePathname()
+    const { replace } = useRouter()
+
     function handleSearch(term: string) {
-        console.log(term)
+        const param = new URLSearchParams(searchParams)
+        if (term) {
+            param.set('query', term)
+        } else {
+            param.delete('query')
+        }
+
+        replace(`${pathname}?${param.toString()}`)
     }
 
     return (
@@ -16,8 +28,10 @@ export default function Search({placeholder}: { placeholder: string }) {
                                   fontSize={24}/>
                     <input
                         className="text-ellipsis block w-full bg-transparent border-0 placeholder:text-onSurfaceVariant focus:outline-none focus:w-96 focus:font-normal transition-all"
-                        placeholder={placeholder} onChange={(e) => handleSearch(e.target.value)}/>
-
+                        placeholder={placeholder}
+                        onChange={(e) => handleSearch(e.target.value)}
+                        defaultValue={searchParams.get('query')?.toString()}
+                    />
                 </div>
             </div>
         </div>
