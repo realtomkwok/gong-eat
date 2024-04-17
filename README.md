@@ -9,9 +9,9 @@ This roadmap describes the current, future and the past goals for both *Customer
 - [x]  Browse a list of restaurants
 - [x]  Browse the menu of a restaurant
 - [x]  Filter restaurants by selecting category
-- [ ]  Filter restaurants by searching keywords
+- [x]  Filter restaurants by searching keywords
 - [x]  Shopping Bag
-- [ ]  Placing orders and payment
+- [x]  Placing orders and payment
 
 ### Restaurants
 
