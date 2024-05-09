@@ -1,8 +1,7 @@
 import React from "react";
-import {MenuItemData, OrderData, RestaurantData} from "@/app/lib/data-type";
-import getData from "@/app/lib/get-data";
+import {MenuItemData, OrderData, RestaurantData} from "@/app/api/data-type";
+import getData from "@/app/api/get-data";
 import Link from "next/link";
-import {MaterialIcon} from "@/app/components/material-icon";
 import {Button} from "@/app/components/button";
 import PaymentCards from "@/app/components/payment-cards";
 

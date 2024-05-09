@@ -1,5 +1,5 @@
-import {MenuItemData, RestaurantData} from "@/app/lib/data-type";
-import getData from "@/app/lib/get-data";
+import {MenuItemData, RestaurantData} from "@/app/api/data-type";
+import getData from "@/app/api/get-data";
 
 export default function getBagItems(data: MenuItemData[]) {
     let totalPrice = 0

@@ -8,8 +8,8 @@ import {useItemStore} from "@/app/providers/item-store-provider";
 import Image from "next/image";
 import Stepper from "@/app/components/stepper";
 import {motion, AnimatePresence, MotionProps} from "framer-motion";
-import getItems from "@/app/lib/get-bag-items";
-import {emphasizedEasing_Long, emphasizedEasing_Medium} from "@/app/lib/motion-config";
+import getItems from "@/app/api/get-bag-items";
+import {emphasizedEasing_Long} from "@/app/api/motion-config";
 
 export default function NavIsland() {
     const {totalCount, items} = useItemStore((state) => state)

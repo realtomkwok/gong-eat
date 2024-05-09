@@ -5,8 +5,7 @@ import {motion} from "framer-motion";
 import {Button} from "@/app/components/button";
 import FrozenRouter from "@/app/components/frozen-router";
 import {MouseEventHandler, useCallback, useEffect, useRef} from "react";
-import {emphasizedEasing_Long} from "@/app/lib/motion-config";
-import {useThemeStore} from "@/app/providers/theme-store-provider";
+import {emphasizedEasing_Long} from "@/app/api/motion-config";
 
 export default function Modal({children}: { children: React.ReactNode }) {
     const overlay = useRef(null)
