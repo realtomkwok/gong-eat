@@ -47,7 +47,7 @@ export default async function RestaurantPage({params}: { params: { slug: string 
                             ))}
                         </section>
                     </div>
-                    <div className="col-span-3 bg-surface text-onSurface rounded-3xl p-6 mb-8">
+                    <div className="col-span-3 bg-surface text-onSurface rounded-3xl p-6">
                         <section className="flex flex-col gap-8">
                             {setByCategory.map((category, index) => {
                                 return (

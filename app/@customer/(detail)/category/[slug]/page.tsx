@@ -4,14 +4,7 @@ import slugify from "slugify";
 import Link from "next/link";
 import {Card_Restaurant} from "@/app/components/card";
 
-interface CategoryPageProps {
-    params: {
-        slug: string
-    }
-    query: string
-}
-
-const CategoryPage = async ({params, query}: CategoryPageProps) => {
+export default async function CategoryPage({params}: { params: { slug: string } }) {
     const currentCategory = params.slug
     const allRestaurants = await getData('/api/restaurants.json')
 
@@ -25,18 +18,8 @@ const CategoryPage = async ({params, query}: CategoryPageProps) => {
         })
     }
 
-    if (query) {
-        const lowercaseQuery = query.toLowerCase()
-        restaurants = restaurants.filter((all: RestaurantData) => {
-            const nameMatch = all.restaurant_name.toLowerCase().includes(lowercaseQuery)
-            const categoryMatch = all.restaurant_category.some(category =>
-                category.toLowerCase().includes(lowercaseQuery)
-            )
-            return nameMatch || categoryMatch
-        })
-    }
-
     return (
+        <>
             <section
                 className="container mx-auto grid gap-6 xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2">
                 {restaurants.map((
@@ -65,7 +48,8 @@ const CategoryPage = async ({params, query}: CategoryPageProps) => {
                     )
                 })}
             </section>
+        </>
+
+
     )
 }
-
-export default CategoryPage

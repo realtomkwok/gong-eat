@@ -122,8 +122,8 @@ export default function NavIsland() {
         <AnimatePresence>
             <motion.div
                 className="flex fixed px-4 py-3 top-6 left-1/2 -translate-x-1/2 z-50 justify-center min-w-96 bg-surfaceVariant text-onSurfaceVariant rounded-4xl"
-                initial={{width: "min-content", opacity: 0}}
-                animate={{width: "max-content", minWidth: "fit-content", opacity: 1}}
+                initial={{width: 800, opacity: 0}}
+                animate={{width: "fit-content", minWidth: "fit-content", opacity: 1}}
                 transition={emphasizedEasing_Long}
                 exit={{width: 640, opacity: 1}}
             >

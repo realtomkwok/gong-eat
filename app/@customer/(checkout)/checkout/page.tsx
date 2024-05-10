@@ -4,7 +4,6 @@ import getData from "@/app/lib/get-data";
 import Link from "next/link";
 import {MaterialIcon} from "@/app/components/material-icon";
 import {Button} from "@/app/components/button";
-import PaymentCards from "@/app/components/payment-cards";
 
 export default async function CheckoutPage() {
     // *TODO* Retrieve orders data from api
@@ -37,8 +36,8 @@ export default async function CheckoutPage() {
                         <Button icon={{iconName: "arrow_back"}} label="Back to Menu" className="w-fit"/>
                     </Link>
                     <h1 className="font-semibold text-6xl tracking-tighter py-12">Checkout</h1>
-                    <div className="grid grid-cols-5 gap-8">
-                        <section className="col-span-3 flex flex-col gap-4">
+                    <div className="grid grid-cols-5 gap-4">
+                        <section className="col-span-3 flex flex-col gap-2">
                             <div className="bg-surface p-6 rounded-3xl text-onSurface">
                                 <h2 className="font-semibold text-2xl mb-4 tracking-tight">Delivery Details</h2>
                                 <div className="flex flex-col justify-between gap-4">
@@ -49,23 +48,8 @@ export default async function CheckoutPage() {
                                 </div>
                             </div>
                             <div className="bg-surface p-6 rounded-3xl text-onSurface">
-                                <div className="flex flex-row justify-between items-center">
-                                    <h2 className="font-semibold text-2xl mb-4 tracking-tight">Payment Method</h2>
-                                    <Button icon={{iconName: "edit"}} label="Change" btnStyle={{
-                                        color: "bg-secondaryContainer",
-                                        stateColor: "bg-stateOnSecondaryContainer",
-                                        textColor: "text-onSecondaryContainer"
-                                    }}/>
-                                </div>
-                                <div className="flex flex-row gap-4 items-center">
-                                    <div className="w-12">
-                                        <PaymentCards cardType={"amex"} />
-                                    </div>
-                                    <div className="flex flex-col justify-between">
-                                        <h3 className="font-semibold text-lg">American Express</h3>
-                                        <p className="font-normal text-base">**** **** **** 1234</p>
-                                    </div>
-                                </div>
+                                <h2 className="font-semibold text-2xl mb-4 tracking-tight">Payment Method</h2>
+
                             </div>
                             <div className="bg-surface p-6 rounded-3xl text-onSurface">
                                 <div className="flex flex-row justify-between mb-4">
@@ -99,16 +83,16 @@ export default async function CheckoutPage() {
                                 <ul className="flex flex-col gap-2">
                                     <li className="flex flex-row justify-between text-base">
                                         <span>Subtotal</span>
-                                        <span className="font-semibold">${orderData.order_subtotal}</span>
+                                        <span className="font-semibold">{orderData.order_subtotal}</span>
                                     </li>
                                     <li className="flex flex-row justify-between text-base">
                                         <span>Service Fee</span>
                                         <div className="flex flex-col gap-1 items-end">
                                             <p>
                                                 <span
-                                                    className="font-normal line-through text-onSurfaceVariant mr-1">${orderData.order_service_fee.toFixed(2)}</span>
+                                                    className="font-normal line-through text-onSurfaceVariant mr-1">{orderData.order_service_fee.toFixed(2)}</span>
                                                 <span
-                                                    className="font-semibold">${orderServiceFee.toFixed(2)}</span>
+                                                    className="font-semibold">{orderServiceFee.toFixed(2)}</span>
                                             </p>
                                             <p className="font-normal text-sm text-primary">{customerData.vip_status === "active" ? "You're saving with Membership!" : null}</p>
                                         </div>
