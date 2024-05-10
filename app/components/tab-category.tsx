@@ -1,9 +1,9 @@
 import {Tab, TabList} from "@/app/components/tabs";
 import {Button} from "@/app/components/button";
 import Image from "next/image";
-import getEmoji from "@/app/lib/get-emoji";
+import getEmoji from "@/app/api/get-emoji";
 import React from "react";
-import {CategoryData} from "@/app/lib/data-type";
+import {CategoryData} from "@/app/api/data-type";
 
 export default function TabCategory(props: { categories: CategoryData[], currentPath: string }) {
     return (

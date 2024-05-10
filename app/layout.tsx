@@ -1,5 +1,5 @@
 // Root layout for the app
-
+import React from "react";
 import type {Metadata} from "next";
 import "material-symbols/rounded.css"
 import "./globals.css";

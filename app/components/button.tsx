@@ -3,7 +3,7 @@
 import {MaterialIcon, IconProps} from "@/app/components/material-icon";
 import React from "react";
 import {motion} from "framer-motion";
-import {emphasizedEasing_Medium} from "@/app/lib/motion-config";
+import {emphasizedEasing_Medium} from "@/app/api/motion-config";
 
 interface ButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, React.AriaAttributes {
     icon: IconProps
