@@ -1,7 +1,7 @@
 import React from "react";
 import ClientLayout, {LayoutProps} from "@/app/@customer/(feed)/client-layout";
 import getData from "@/app/lib/get-data";
-import {CategoryData} from "@/app/lib/data-type";
+import {CategoryData} from "@/app/lib/defintions";
 
 
 export default async function CustomerLayout(props: Readonly<LayoutProps>) {

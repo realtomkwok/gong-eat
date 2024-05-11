@@ -1,5 +1,5 @@
 import getData from "@/app/lib/get-data";
-import {RestaurantData} from "@/app/lib/data-type";
+import {RestaurantData} from "@/app/lib/defintions";
 import slugify from "slugify";
 import Link from "next/link";
 import {Card_Restaurant} from "@/app/components/card";

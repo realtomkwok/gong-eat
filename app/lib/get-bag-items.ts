@@ -1,4 +1,4 @@
-import {MenuItemData, RestaurantData} from "@/app/lib/data-type";
+import {MenuItemData, RestaurantData} from "@/app/lib/defintions";
 import getData from "@/app/lib/get-data";
 
 export default function getBagItems(data: MenuItemData[]) {

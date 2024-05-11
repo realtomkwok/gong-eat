@@ -1,5 +1,5 @@
 import React from "react";
-import {MenuItemData, OrderData, RestaurantData} from "@/app/lib/data-type";
+import {MenuItemData, OrderData, RestaurantData} from "@/app/lib/defintions";
 import getData from "@/app/lib/get-data";
 import Link from "next/link";
 import {MaterialIcon} from "@/app/components/material-icon";

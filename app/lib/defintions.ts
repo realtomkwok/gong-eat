@@ -17,6 +17,9 @@ export interface CustomerData {
     customer_address: string
     vip_status: "0" | "1"
     vip_expire: Date
+    password: string
+    email: string
+
 }
 
 export interface MenuItemData {

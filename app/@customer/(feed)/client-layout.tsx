@@ -3,7 +3,7 @@
 import React, {useEffect} from "react";
 import {AnimatePresence, motion} from "framer-motion";
 import {TabPanel, Tabs} from "@/app/components/tabs";
-import {CategoryData} from "@/app/lib/data-type"
+import {CategoryData} from "@/app/lib/defintions"
 import {Button} from "@/app/components/button";
 import TabCategory from "@/app/components/tab-category";
 import {usePathname} from "next/navigation";
