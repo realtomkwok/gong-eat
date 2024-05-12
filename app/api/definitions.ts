@@ -2,12 +2,13 @@
 export interface RestaurantData {
     restaurant_id: number
     restaurant_name: string
-    restaurant_address: string
-    restaurant_phone: string
-    restaurant_category: [string]
     restaurant_rating: number
     restaurant_revenue: number
+    restaurant_address: string
+    restaurant_phone: string
     restaurant_hero_image: string
+    category_id: number
+    restaurant_category: [string]
 }
 
 export interface CustomerData {

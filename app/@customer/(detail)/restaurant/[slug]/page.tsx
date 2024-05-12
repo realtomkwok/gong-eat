@@ -1,6 +1,7 @@
 import {MaterialIcon} from "@/app/components/material-icon";
 import {Card_MenuItem} from "@/app/components/card";
 import getData from "@/app/api/get-data";
+import getServerData from "@/app/api/get-server-data";
 import getID from "@/app/api/get-id";
 import groupItemsByKey from "@/app/api/group-items";
 import Link from "next/link";
@@ -9,6 +10,10 @@ import {RestaurantData, MenuItemData} from "@/app/api/definitions";
 export default async function RestaurantPage({params}: { params: { slug: string } }) {
 
     const restaurantID = Number(getID(params.slug))
+
+    const restaurantDataNEW: RestaurantData | undefined = await getServerData('restaurant/' + restaurantID)
+    const menuDataNEW: MenuItemData[] | undefined = await getServerData('menu/' + restaurantID)
+
     const restaurantData: RestaurantData | undefined = await getData(`/api/restaurants.json`)
         .then((data: RestaurantData[]) => data.find((restaurant: RestaurantData) => restaurant.restaurant_id === restaurantID))
     const menuData: MenuItemData[] | undefined = await getData(`/api/menu/restaurant_id=${restaurantID}.json`)

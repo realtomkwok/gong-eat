@@ -11,7 +11,7 @@ import Stepper from "@/app/components/stepper";
 
 interface CardProps {
     title: string
-    subtitle: string
+    subtitle?: string
     description?: string
     imageSrc?: string
 }
