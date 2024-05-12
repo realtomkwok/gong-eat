@@ -12,18 +12,19 @@ export const metadata: Metadata = {
     description: "Food Delivery for Wollongong",
 };
 
-export default function RootLayout({customer, business}: {
+export default function RootLayout({customer, unauthenticated}: {
     customer: React.ReactNode,
-    business: React.ReactNode
+    unauthenticated: React.ReactNode
 }) {
 
-    const userType: "customer" | "business" = "customer"
+    // TODO: Replace with authentication logic
+    const userType: "customer" | "unauthenticated" = "customer"
 
     return (
         <ThemeStoreProvider>
             <ItemStoreProvider>
                 <ClientLayout>
-                {userType === "customer" ? customer : business}
+                {userType === "customer" ? customer : unauthenticated}
                 </ClientLayout>
             </ItemStoreProvider>
         </ThemeStoreProvider>

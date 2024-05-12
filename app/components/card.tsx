@@ -6,7 +6,7 @@ import {motion, MotionProps} from "framer-motion";
 import {MaterialIcon} from "@/app/components/material-icon";
 import {emphasizedEasing_Medium} from "@/app/api/motion-config";
 import {useItemStore} from "@/app/providers/item-store-provider";
-import {MenuItemData} from "@/app/api/data-type";
+import {MenuItemData} from "@/app/api/definitions";
 import Stepper from "@/app/components/stepper";
 
 interface CardProps {

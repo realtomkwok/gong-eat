@@ -3,7 +3,7 @@ import {Button} from "@/app/components/button";
 import Image from "next/image";
 import getEmoji from "@/app/api/get-emoji";
 import React from "react";
-import {CategoryData} from "@/app/api/data-type";
+import {CategoryData} from "@/app/api/definitions";
 
 export default function TabCategory(props: { categories: CategoryData[], currentPath: string }) {
     return (

@@ -4,7 +4,7 @@ import getData from "@/app/api/get-data";
 import getID from "@/app/api/get-id";
 import groupItemsByKey from "@/app/api/group-items";
 import Link from "next/link";
-import {RestaurantData, MenuItemData} from "@/app/api/data-type";
+import {RestaurantData, MenuItemData} from "@/app/api/definitions";
 
 export default async function RestaurantPage({params}: { params: { slug: string } }) {
 

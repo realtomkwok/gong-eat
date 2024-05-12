@@ -1,5 +1,5 @@
 import {createStore} from "zustand/vanilla";
-import {MenuItemData} from "@/app/api/data-type";
+import {MenuItemData} from "@/app/api/definitions";
 import {produce} from "immer";
 
 export interface ItemState {

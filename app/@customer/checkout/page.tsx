@@ -1,5 +1,5 @@
 import React from "react";
-import {MenuItemData, OrderData, RestaurantData} from "@/app/api/data-type";
+import {MenuItemData, OrderData, RestaurantData} from "@/app/api/definitions";
 import getData from "@/app/api/get-data";
 import Link from "next/link";
 import {Button} from "@/app/components/button";
