@@ -5,20 +5,38 @@ import {Card_Restaurant} from "@/app/components/card";
 import getServerData from "@/app/api/get-server-data";
 import getData from "@/app/api/get-data";
 
-export default async function CategoryPage({params}: { params: { slug: string } }) {
+interface CategoryPageProps {
+    params: {
+        slug: string
+    }
+    query: string
+}
+
+const CategoryPage = async ({params, query}: CategoryPageProps) => {
     const currentCategory = params.slug
     const allRestaurants = await getServerData('/restaurant/all')
     const allCategories: [CategoryData] = await getData('/api/categories.json')
 
     let restaurants: RestaurantData[]
 
-    if (currentCategory === 'all') {
-        restaurants = allRestaurants
+    // Filter by search query
+    if (query) {
+        const lowercaseQuery = query.toLowerCase()
+        restaurants = allRestaurants.filter((restaurant: RestaurantData) => {
+           const nameMatch = restaurant.restaurant_name.toLowerCase().includes(lowercaseQuery)
+            const categoryMatch = allCategories.find((category: CategoryData) => category.category_id === restaurant.category_id)?.category_name.toLowerCase().includes(lowercaseQuery)
+            return nameMatch || categoryMatch
+        })
     } else {
-        restaurants = allRestaurants
-        // Find category_id matching the `currentCategory`
-        const category_id = allCategories.find((category: CategoryData) => category.category_name.toLowerCase() === currentCategory.toLowerCase())?.category_id
-        restaurants = allRestaurants.filter((restaurant: RestaurantData) => restaurant.category_id === category_id)
+        // Filter by category
+        if (currentCategory === 'all') {
+            restaurants = allRestaurants
+        } else {
+            restaurants = allRestaurants
+            // Find category_id matching the `currentCategory`
+            const category_id = allCategories.find((category: CategoryData) => category.category_name.toLowerCase() === currentCategory.toLowerCase())?.category_id
+            restaurants = allRestaurants.filter((restaurant: RestaurantData) => restaurant.category_id === category_id)
+        }
     }
 
     function getCategory(category_id: number) {
@@ -58,7 +76,7 @@ export default async function CategoryPage({params}: { params: { slug: string } 
                 })}
             </section>
         </>
-
-
     )
 }
+
+export default CategoryPage
