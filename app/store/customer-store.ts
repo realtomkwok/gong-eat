@@ -8,9 +8,9 @@ export interface CustomerState {
 }
 
 export const useCustomerStore = create(persist((set) => ({
-    customerData: {} as CustomerData,
-    setCustomerData: (data: CustomerData) => set({customerData: data})
+    customerData: {},
+    setCustomerData: () => set((state: CustomerState) => ({customerData: state.customerData}))
 }), {
-    name: 'customer-store',
+    name: 'current-customer',
     storage: createJSONStorage(() => sessionStorage)
 }))

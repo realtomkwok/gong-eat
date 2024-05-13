@@ -11,18 +11,11 @@ import useStore from "@/app/api/useStore";
 import {CustomerState, useCustomerStore} from "@/app/store/customer-store";
 
 export default function CheckoutPage() {
-    // TODO: Fetch customer data from state
-    // const customerData = {
-    //     "customer_id": 1,
-    //     "customer_name": "Alice Smith",
-    //     "vip_status": "active",
-    //     "vip_expire": "2024-12-31",
-    //     "customer_address": "789 Hill Rd",
-    //     "customer_phone": "555-7890"
-    // }
 
     const customerData = useStore(useCustomerStore, (state: CustomerState) => state.customerData)
     const {items} = useItemStore((state) => state)
+    const [instructions, setInstructions] = React.useState<string>("")
+
 
     // TODO: Separate different restaurant items into different orders
     // console.log(groupItemsByKey(items, 'restaurant_id'))
@@ -51,7 +44,6 @@ export default function CheckoutPage() {
 
     if (customerData && items) {
         const cartItemData = aggregateItems(items)
-        // const [instructions, setInstructions] = React.useState<string>("")
 
         const itemCountsInOrder = cartItemData.reduce((acc, item) => acc + item.item_counts, 0)
         const orderSubtotal = cartItemData.reduce((acc, item) => acc + item.item_subtotal, 0)
@@ -65,7 +57,7 @@ export default function CheckoutPage() {
             order_status: "confirmed",
             order_subtotal: orderSubtotal,
             order_service_fee: finalServiceFee,
-            comment: "instructions"
+            comment: instructions
         }
 
         // Handle order submission
@@ -80,8 +72,8 @@ export default function CheckoutPage() {
 
 
         return (
-            <div className="w-full text-onSurface">
-                <div className="container mx-auto p-8">
+            <div className="container w-full text-onSurface">
+                <div className="mx-auto p-8">
                     <Link href={"/"}>
                         <Button icon={{iconName: "arrow_back"}} label="Back to Menu" className="w-fit"/>
                     </Link>
@@ -131,8 +123,8 @@ export default function CheckoutPage() {
                                 <textarea
                                     className="w-full h-32 bg-surfaceContainer text-onSurfaceContainer p-4 rounded-2xl"
                                     placeholder="Add a note to your order (optional)"
-                                    // value={instructions}
-                                    // onChange={(e) => setInstructions(e.target.value)}
+                                    value={instructions}
+                                    onChange={(e) => setInstructions(e.target.value)}
                                 />
                             </div>
                         </section>
