@@ -45,6 +45,7 @@ export default function CheckoutPage() {
         const cartItemData = aggregateItems(items)
         const [instructions, setInstructions] = React.useState<string>("")
 
+        const orderId = Math.floor(Math.random() * 1000000)
         const itemCountsInOrder = cartItemData.reduce((acc, item) => acc + item.item_counts, 0)
         const orderSubtotal = cartItemData.reduce((acc, item) => acc + item.item_subtotal, 0)
         const orderServiceFee = 5
@@ -52,7 +53,7 @@ export default function CheckoutPage() {
         const orderTotal = orderSubtotal + finalServiceFee
 
         const customerOrderData: CustomerOrderData = {
-            order_id: Math.floor(Math.random() * 1000000),
+            order_id: orderId,
             restaurant_id: cartItemData[0].restaurant_id,
             customer_id: customerData.customer_id,
             order_status: "confirmed",

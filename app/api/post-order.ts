@@ -29,5 +29,5 @@ export async function submitOrder(orderData: CustomerOrderData): Promise<void> {
         // Handle network or other errors
     }
 
-    permanentRedirect('checkout/order-confirmation')
+    permanentRedirect(`checkout/order-confirmation/${orderData.order_id}`)
 }

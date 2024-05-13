@@ -92,11 +92,13 @@ export default function NavIsland() {
     const Initial: React.FC<MotionProps> = ({...rest}) => {
         return (
             <motion.nav className="flex flex-row rounded-full gap-4 w-fit" {...rest}>
-                <Button icon={{iconName: "account_circle"}} btnStyle={{
-                    color: "bg-surfaceContainer",
-                    stateColor: "bg-stateSurfaceVariantContainer",
-                    textColor: "bg-onSurfaceContainer"
-                }}/>
+                <Link href={"/account"}>
+                    <Button icon={{iconName: "account_circle"}} btnStyle={{
+                        color: "bg-surfaceContainer",
+                        stateColor: "bg-stateSurfaceVariantContainer",
+                        textColor: "bg-onSurfaceContainer"
+                    }}/>
+                </Link>
                 <div className="flex px-2 pb-1 content-center items-center text-2xl font-bold tracking-widest">
                     <Link href="/">
                         <span>GONG EATS</span>
