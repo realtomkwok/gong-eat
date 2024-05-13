@@ -16,7 +16,7 @@ export interface CustomerData {
     customer_name: string
     customer_phone: string
     customer_address: string
-    vip_status: "0" | "1"
+    vip_status: "active" | "inactive"
     vip_expire: Date
 }
 
@@ -30,32 +30,16 @@ export interface MenuItemData {
     item_image: string
 }
 
-export interface OrderData {
-    order_id: number
-    customer_id: number
-    restaurant_id: number
-    order_items: {
-        item_id: number
-        item_quantity: number
-    }[]
-    order_status: "confirmed" | "accepted" | "rejected" | "delivered"
-    order_subtotal: number
-    comment: string
-    order_service_fee: number
-    order_rating: number
-    order_review: string
-}
-
 export interface CartItemData extends MenuItemData {
     item_subtotal: number
     item_counts: number
 }
 
-export interface CustomerOrderData {
-    order_id: number
+export interface OrderData {
+    order_id: string
     restaurant_id: number
-    customer_id: number
-    delivery_person_id?: number
+    customer_id: string
+    delivery_person_id?: string
     order_status: "confirmed" | "delivered" | "accepted" | "rejected"
     comment: string
     order_subtotal: number
@@ -64,6 +48,8 @@ export interface CustomerOrderData {
     order_review?: string
     created_time: Date
 }
+
+export type SubmitOrderData = Omit<OrderData, "order_id" | "delivery_person_id" | "created_time" | "order_rating" | "order_review">
 
 export interface CategoryData {
     category_id: number

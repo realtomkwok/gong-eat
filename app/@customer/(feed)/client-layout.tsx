@@ -35,10 +35,10 @@ export default function ClientLayout(props: LayoutProps) {
                     <Tabs>
                         <div className="TabsContainer container mx-auto flex justify-around gap-12 p-8 ">
                             <TabCategory categories={props.categories} currentPath={currentPathName}/>
-                            <div className="flex flex-row gap-4 mt-24 ">
-                                <Button icon={{iconName: "casino"}} />
-                                <Button icon={{iconName: "filter_list"}} label="Filter" className="uppercase" />
-                            </div>
+                            {/*<div className="flex flex-row gap-4 mt-24 ">*/}
+                            {/*    <Button icon={{iconName: "casino"}} />*/}
+                            {/*    <Button icon={{iconName: "filter_list"}} label="Filter" className="uppercase" />*/}
+                            {/*</div>*/}
                         </div>
                         <div className="bg-surface rounded-4xl p-6">
                             <TabPanel>{props.feed}</TabPanel>

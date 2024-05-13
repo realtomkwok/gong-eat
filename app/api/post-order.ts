@@ -1,10 +1,9 @@
 'use server'
 
-import {CustomerOrderData} from "@/app/api/definitions";
+import {CartItemData, SubmitOrderData} from "@/app/api/definitions";
 import {permanentRedirect} from "next/navigation";
 
-// TODO: Fix this the server can't never get the order data
-export async function submitOrder(orderData: CustomerOrderData): Promise<void> {
+export async function submitOrder(orderData: SubmitOrderData): Promise<void> {
     console.log("Submitting order...")
     console.log(orderData)
 
@@ -20,14 +19,49 @@ export async function submitOrder(orderData: CustomerOrderData): Promise<void> {
         const result = await response.json()
         if (response.ok) {
             console.log('Order submitted successfully')
+            // Push the order ID to the URL
+            // TODO: Fix this for the actual order ID
+            // permanentRedirect(`checkout/order-confirmation/`)
+
         } else {
             // Handle error
             console.error('Failed to submit order:', result)
+            alert('Failed to submit order')
         }
     } catch (error) {
         console.error('Error to submit order:', error)
+        alert(`Error to submit order: ${error}`, )
         // Handle network or other errors
     }
 
-    permanentRedirect(`checkout/order-confirmation/${orderData.order_id}`)
+}
+
+export async function submitItems(itemData: CartItemData): Promise<void> {
+    console.log("Submitting items...")
+    console.log(itemData)
+
+    try {
+        const response = await fetch(process.env.SERVER_URL + '/api/orderitems', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(itemData)
+        })
+
+        const result = await response.json()
+        if (response.ok) {
+            console.log('Items submitted successfully')
+            console.log(result)
+            // permanentRedirect(`checkout/order-confirmation/`)
+        } else {
+            // Handle error
+            console.error('Failed to submit items:', result)
+            alert('Failed to submit items')
+        }
+    } catch (error) {
+        console.error('Error to submit items:', error)
+        alert(`Error to submit items: ${error}`, )
+        // Handle network or other errors
+    }
 }

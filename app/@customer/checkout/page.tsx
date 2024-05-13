@@ -1,26 +1,33 @@
 'use client'
 
 import React from "react";
-import {CustomerOrderData, MenuItemData, CartItemData} from "@/app/api/definitions";
+import {MenuItemData, CartItemData, SubmitOrderData, CustomerData} from "@/app/api/definitions";
 import Link from "next/link";
 import {Button} from "@/app/components/button";
 import {useItemStore} from "@/app/providers/item-store-provider";
-import { submitOrder } from "@/app/api/post-order";
+import {submitOrder} from "@/app/api/post-order";
+import groupItemsByKey from "@/app/api/group-items";
+import useStore from "@/app/api/useStore";
+import {CustomerState, useCustomerStore} from "@/app/store/customer-store";
 
 export default function CheckoutPage() {
     // TODO: Fetch customer data from state
-    const customerData = {
-        "customer_id": 1,
-        "customer_name": "Alice Smith",
-        "vip_status": "active",
-        "vip_expire": "2024-12-31",
-        "customer_address": "789 Hill Rd",
-        "customer_phone": "555-7890"
-    }
+    // const customerData = {
+    //     "customer_id": 1,
+    //     "customer_name": "Alice Smith",
+    //     "vip_status": "active",
+    //     "vip_expire": "2024-12-31",
+    //     "customer_address": "789 Hill Rd",
+    //     "customer_phone": "555-7890"
+    // }
+
+    const customerData = useStore(useCustomerStore, (state: CustomerState) => state.customerData)
+    const {items} = useItemStore((state) => state)
+
+    // TODO: Separate different restaurant items into different orders
+    // console.log(groupItemsByKey(items, 'restaurant_id'))
 
     // Aggregate items in cart
-    // TODO: Separate different restaurant items into different orders
-    const {items} = useItemStore((state) => state)
     const aggregateItems = (items: MenuItemData[]): CartItemData[] => {
         const map = new Map<number, CartItemData>
 
@@ -41,32 +48,31 @@ export default function CheckoutPage() {
         return Array.from(map.values())
     }
 
+
     if (customerData && items) {
         const cartItemData = aggregateItems(items)
-        const [instructions, setInstructions] = React.useState<string>("")
+        // const [instructions, setInstructions] = React.useState<string>("")
 
-        const orderId = Math.floor(Math.random() * 1000000)
         const itemCountsInOrder = cartItemData.reduce((acc, item) => acc + item.item_counts, 0)
         const orderSubtotal = cartItemData.reduce((acc, item) => acc + item.item_subtotal, 0)
         const orderServiceFee = 5
         const finalServiceFee = customerData.vip_status === "active" ? 0 : orderServiceFee
         const orderTotal = orderSubtotal + finalServiceFee
 
-        const customerOrderData: CustomerOrderData = {
-            order_id: orderId,
+        const orderData: SubmitOrderData = {
             restaurant_id: cartItemData[0].restaurant_id,
-            customer_id: customerData.customer_id,
+            customer_id: customerData.customer_id.toString(),
             order_status: "confirmed",
             order_subtotal: orderSubtotal,
             order_service_fee: finalServiceFee,
-            created_time: new Date(),
-            comment: instructions
+            comment: "instructions"
         }
 
         // Handle order submission
         const handleCheckout = () => {
-            submitOrder(customerOrderData).then(() => {
+            submitOrder(orderData).then((res) => {
                 console.log("Order is submitted.")
+                console.log(res)
             }).catch((error) => {
                 console.error("Failed to submit order:", error)
             })
@@ -122,10 +128,11 @@ export default function CheckoutPage() {
                             </div>
                             <div className="bg-surface p-6 rounded-3xl text-onSurface">
                                 <h2 className="font-semibold text-2xl mb-4 tracking-tight">Special Instructions</h2>
-                                <textarea className="w-full h-32 bg-surfaceContainer text-onSurfaceContainer p-4 rounded-2xl"
-                                          placeholder="Add a note to your order (optional)"
-                                          value={instructions}
-                                          onChange={(e) => setInstructions(e.target.value)}
+                                <textarea
+                                    className="w-full h-32 bg-surfaceContainer text-onSurfaceContainer p-4 rounded-2xl"
+                                    placeholder="Add a note to your order (optional)"
+                                    // value={instructions}
+                                    // onChange={(e) => setInstructions(e.target.value)}
                                 />
                             </div>
                         </section>
@@ -172,10 +179,10 @@ export default function CheckoutPage() {
                                         icon={{iconName: "arrow_forward"}}
                                         label="Place Order"
                                         btnStyle={{
-                                    color: "bg-primary",
-                                    stateColor: "bg-stateOnPrimary",
-                                    textColor: "text-onPrimary"
-                                }}/>
+                                            color: "bg-primary",
+                                            stateColor: "bg-stateOnPrimary",
+                                            textColor: "text-onPrimary"
+                                        }}/>
                             </div>
                         </section>
                     </div>
