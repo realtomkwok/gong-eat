@@ -1,6 +1,7 @@
 'use server'
 
 import {CustomerOrderData} from "@/app/api/definitions";
+import {permanentRedirect} from "next/navigation";
 
 // TODO: Fix this the server can't never get the order data
 export async function submitOrder(orderData: CustomerOrderData): Promise<void> {
@@ -27,4 +28,6 @@ export async function submitOrder(orderData: CustomerOrderData): Promise<void> {
         console.error('Error to submit order:', error)
         // Handle network or other errors
     }
+
+    permanentRedirect('checkout/order-confirmation')
 }

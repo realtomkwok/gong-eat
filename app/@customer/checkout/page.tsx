@@ -43,6 +43,7 @@ export default function CheckoutPage() {
 
     if (customerData && items) {
         const cartItemData = aggregateItems(items)
+        const [instructions, setInstructions] = React.useState<string>("")
 
         const itemCountsInOrder = cartItemData.reduce((acc, item) => acc + item.item_counts, 0)
         const orderSubtotal = cartItemData.reduce((acc, item) => acc + item.item_subtotal, 0)
@@ -58,7 +59,7 @@ export default function CheckoutPage() {
             order_subtotal: orderSubtotal,
             order_service_fee: finalServiceFee,
             created_time: new Date(),
-            comment: ""
+            comment: instructions
         }
 
         // Handle order submission
@@ -69,6 +70,7 @@ export default function CheckoutPage() {
                 console.error("Failed to submit order:", error)
             })
         }
+
 
         return (
             <div className="w-full text-onSurface">
@@ -121,6 +123,8 @@ export default function CheckoutPage() {
                                 <h2 className="font-semibold text-2xl mb-4 tracking-tight">Special Instructions</h2>
                                 <textarea className="w-full h-32 bg-surfaceContainer text-onSurfaceContainer p-4 rounded-2xl"
                                           placeholder="Add a note to your order (optional)"
+                                          value={instructions}
+                                          onChange={(e) => setInstructions(e.target.value)}
                                 />
                             </div>
                         </section>
