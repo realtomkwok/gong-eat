@@ -3,7 +3,8 @@ export default function CustomerLayout({children}: {children: React.ReactNode}) 
         <div className="min-h-screen">
             <main>
                 {children}
-                <footer className="p-6">Footer</footer>
+                {/* TODO: A footer */}
+                <footer className="p-8"></footer>
             </main>
         </div>
     )
