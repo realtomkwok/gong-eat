@@ -22,7 +22,7 @@ export default function NavIsland() {
         const {addItem, removeItem} = useItemStore((state) => state,)
 
         return (
-            <motion.div className="flex flex-col w-[640px] rounded-4xl gap-4" {...rest}>
+            <motion.div className="flex flex-col w-[800px] rounded-4xl gap-4" {...rest}>
                 <div className="flex flex-row justify-between w-full items-center">
                     <Button icon={{iconName: "close"}}
                             btnStyle={{
@@ -32,10 +32,8 @@ export default function NavIsland() {
                             }}
                             className="w-fit justify-self-start"
                             onClick={() => setBagOpen(!bagIsOpen)}/>
-                    <Link href={"/checkout"} onClick={() =>
-                        setBagOpen(false)
-                        // TODO: Add a function to create a new order
-                    }>
+
+                    <Link href={"/checkout"}>
                         <Button icon={{iconName: "arrow_forward"}}
                                 btnStyle={{
                                     color: "bg-primary",
@@ -105,7 +103,7 @@ export default function NavIsland() {
                     </Link>
                 </div>
                 {/*<Button icon={{iconName: "location_on"}} label={deliveryAddress}/>*/}
-                <Search placeholder={"Cuisine, Restaurants, etc..."}/> {/* TODO: Add search functionality */}
+                <Search placeholder={"Cuisine, Restaurants, etc..."}/>
                 <Button icon={{iconName: "shopping_basket"}} btnStyle={{
                     color: "bg-surfaceContainer",
                     stateColor: "bg-stateSurfaceVariant",

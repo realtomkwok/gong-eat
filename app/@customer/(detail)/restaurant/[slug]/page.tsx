@@ -1,6 +1,5 @@
 import {MaterialIcon} from "@/app/components/material-icon";
 import {Card_MenuItem} from "@/app/components/card";
-import getData from "@/app/api/get-data";
 import getServerData from "@/app/api/get-server-data";
 import getID from "@/app/api/get-id";
 import groupItemsByKey from "@/app/api/group-items";
@@ -11,12 +10,8 @@ export default async function RestaurantPage({params}: { params: { slug: string 
 
     const restaurantID = Number(getID(params.slug))
 
-    const restaurantDataNEW: RestaurantData | undefined = await getServerData('restaurant/' + restaurantID)
-    const menuDataNEW: MenuItemData[] | undefined = await getServerData('menu/' + restaurantID)
-
-    const restaurantData: RestaurantData | undefined = await getData(`/api/restaurants.json`)
-        .then((data: RestaurantData[]) => data.find((restaurant: RestaurantData) => restaurant.restaurant_id === restaurantID))
-    const menuData: MenuItemData[] | undefined = await getData(`/api/menu/restaurant_id=${restaurantID}.json`)
+    const restaurantData: RestaurantData | undefined = await getServerData('/restaurant/' + restaurantID)
+    const menuData: MenuItemData[] | undefined = await getServerData('/menu?restaurant_id=' + restaurantID)
 
     if (restaurantData && menuData) {
         const groupedItems = groupItemsByKey(menuData, 'item_category')
@@ -24,15 +19,15 @@ export default async function RestaurantPage({params}: { params: { slug: string 
         const setByCategory: Set<MenuItemData>[] = menuCategories.map((category) => new Set(groupedItems[category]))
 
         return (
-            <main className="text-onSurfaceContainer overscroll-none w-full">
+            <main className="text-onSurfaceContainer overscroll-none w-full py-12">
                 <div className="container mx-auto grid grid-cols-4 gap-6">
                     <div className="col-span-1 flex flex-col gap-6 sticky top-28 h-fit">
                         <section className="flex flex-col gap-2.5 bg-surfaceContainer p-6 rounded-3xl">
                             <h1 className="font-semibold text-4xl tracking-tight">{restaurantData.restaurant_name}</h1>
                             <div className="flex flex-row justify-between items-center">
                                 <div>
-                                    <span
-                                        className="card-subtitle uppercase">{restaurantData.restaurant_category.join(' | ')}</span>
+                                    {/*<span*/}
+                                    {/*    className="card-subtitle uppercase">{restaurantData.restaurant_category.join(' | ')}</span>*/}
                                 </div>
                                 <div className="inline-flex items-center gap-0.5">
                                     <MaterialIcon iconName="star" iconStyle="rounded" weight={600} grade={-25}
@@ -62,7 +57,7 @@ export default async function RestaurantPage({params}: { params: { slug: string 
                                             {[...category].map((item, index) => {
                                                 return (
                                                     <Card_MenuItem key={index} title={item.item_name}
-                                                                   subtitle={item.item_price.toString()}
+                                                                   subtitle={`$${item.item_price.toString()}`}
                                                                    description={item.item_description}
                                                                    imageSrc={item.item_image} rawData={item}/>
                                                 )

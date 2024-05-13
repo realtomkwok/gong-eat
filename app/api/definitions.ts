@@ -21,7 +21,7 @@ export interface CustomerData {
 }
 
 export interface MenuItemData {
-    restaurant_id: any;
+    restaurant_id: number;
     item_id: number
     item_name: string
     item_category: string
@@ -44,6 +44,25 @@ export interface OrderData {
     order_service_fee: number
     order_rating: number
     order_review: string
+}
+
+export interface CartItemData extends MenuItemData {
+    item_subtotal: number
+    item_counts: number
+}
+
+export interface CustomerOrderData {
+    order_id: number
+    restaurant_id: number
+    customer_id: number
+    delivery_person_id?: number
+    order_status: "confirmed" | "delivered" | "accepted" | "rejected"
+    comment: string
+    order_subtotal: number
+    order_service_fee: number
+    order_rating?: number
+    order_review?: string
+    created_time: Date
 }
 
 export interface CategoryData {

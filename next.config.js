@@ -12,6 +12,14 @@ module.exports = {
             {
                 protocol: 'https',
                 hostname: 'oddfellows.tv'
+            },
+            {
+                protocol: 'https',
+                hostname: 'live.staticflickr.com'
+            },
+            {
+                protocol: 'https',
+                hostname: 'img.delicious.com.au'
             }
         ]
     }
