@@ -1,11 +1,11 @@
 'use server'
 
-import {CartItemData, SubmitOrderData} from "@/app/api/definitions";
-import {permanentRedirect} from "next/navigation";
+import {permanentRedirect} from 'next/navigation';
+import { OrderItemData, SubmitOrderData } from "@/app/api/definitions";
 
-export async function submitOrder(orderData: SubmitOrderData): Promise<void> {
-    console.log("Submitting order...")
-    console.log(orderData)
+export async function submitOrder(orderData: SubmitOrderData, orderItems: OrderItemData[]): Promise<void> {
+    console.log("Submitting orders...");
+    let orderId: number | undefined = undefined;
 
     try {
         const response = await fetch(process.env.SERVER_URL + '/orders', {
@@ -14,31 +14,36 @@ export async function submitOrder(orderData: SubmitOrderData): Promise<void> {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(orderData)
-        })
+        });
 
-        const result = await response.json()
-        if (response.ok) {
-            console.log('Order submitted successfully')
-            // Push the order ID to the URL
-            // TODO: Fix this for the actual order ID
-            // permanentRedirect(`checkout/order-confirmation/`)
+        const responseText = await response.text();
+        console.log('Order response:', responseText);
 
-        } else {
-            // Handle error
-            console.error('Failed to submit order:', result)
-            alert('Failed to submit order')
+        if (!response.ok) {
+            console.error('Failed to submit orders:', responseText);
+            return;
         }
+
+        const order: OrderItemData = JSON.parse(responseText);
+        console.log('Order submitted successfully');
+
+        if (order.order_id != null) {
+            orderId = order.order_id;
+            orderItems.forEach(item => item.order_id = orderId);
+            await submitItems(orderItems);
+        }
+
+
     } catch (error) {
-        console.error('Error to submit order:', error)
-        alert(`Error to submit order: ${error}`, )
-        // Handle network or other errors
+        console.error('Error to submit orders:', error);
     }
 
+    // console.log(orderId)
+    permanentRedirect(`/checkout/success/${orderId}`);
 }
 
-export async function submitItems(itemData: CartItemData): Promise<void> {
-    console.log("Submitting items...")
-    console.log(itemData)
+export async function submitItems(itemData: OrderItemData[]): Promise<void> {
+    console.log("Submitting items...");
 
     try {
         const response = await fetch(process.env.SERVER_URL + '/api/orderitems', {
@@ -47,21 +52,21 @@ export async function submitItems(itemData: CartItemData): Promise<void> {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(itemData)
-        })
+        });
 
-        const result = await response.json()
-        if (response.ok) {
-            console.log('Items submitted successfully')
-            console.log(result)
-            // permanentRedirect(`checkout/order-confirmation/`)
-        } else {
-            // Handle error
-            console.error('Failed to submit items:', result)
-            alert('Failed to submit items')
+        const responseText = await response.text();
+        console.log('Items response:', responseText);
+
+        if (!response.ok) {
+            console.error('Failed to submit items:', responseText);
+            return;
         }
+
+        // const result = JSON.parse(responseText);
+        console.log('Items submitted successfully');
+        // console.log(result);
+
     } catch (error) {
-        console.error('Error to submit items:', error)
-        alert(`Error to submit items: ${error}`, )
-        // Handle network or other errors
+        console.error('Error to submit items:', error);
     }
 }

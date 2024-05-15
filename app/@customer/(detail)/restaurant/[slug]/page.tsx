@@ -41,7 +41,7 @@ export default async function RestaurantPage({params}: { params: { slug: string 
                                 className="font-bold uppercase tracking-widest border-b border-outline pb-1 self-center">Menu
                             </div>
                             {menuCategories.map((category, index) => (
-                                <Link href={`#${category}`} key={index}>
+                                <Link href={`#${category}`} key={index} replace>
                                     <span className="card-subtitle uppercase hover:font-semibold">{category}</span>
                                 </Link>
                             ))}
@@ -57,7 +57,7 @@ export default async function RestaurantPage({params}: { params: { slug: string 
                                             {[...category].map((item, index) => {
                                                 return (
                                                     <Card_MenuItem key={index} title={item.item_name}
-                                                                   subtitle={`$${item.item_price.toString()}`}
+                                                                   subtitle={`$${item.item_price.toFixed(2).toString()}`}
                                                                    description={item.item_description}
                                                                    imageSrc={item.item_image} rawData={item}/>
                                                 )

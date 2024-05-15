@@ -42,7 +42,7 @@ export const Card_Restaurant: React.FC<CardRestaurantProps> = (props: CardRestau
         return <div className="flex flex-row items-center gap-0.5">
             <MaterialIcon className="" iconName={"star"} iconStyle={"rounded"} weight={600} grade={-25} opticalSize={20}
                           fontSize={16}/>
-            <span className="card-subtitle -translate-y-[1px]">{props.rating}</span>
+            <span className="card-subtitle -translate-y-[1px]">{props.rating.toFixed(2)}</span>
         </div>;
     }
 
@@ -56,11 +56,11 @@ export const Card_Restaurant: React.FC<CardRestaurantProps> = (props: CardRestau
 
                 </div>
                 <div className="TextContainer w-full flex flex-col gap-2 px-4 py-6 ">
-                    <div className="flex flex-row items-baseline justify-between">
-                        <p className="card-title">{props.title}</p>
+                    <p className="card-title">{props.title}</p>
+                    <div className="flex flex-row items-center justify-between">
+                        <p className="card-subtitle uppercase">{props.subtitle}</p>
                         {props.rating && <Rating rating={props.rating}/>}
                     </div>
-                    <p className="card-subtitle uppercase">{props.subtitle}</p>
                 </div>
             </motion.div>
         </CardContainer>
@@ -96,6 +96,53 @@ export const Card_MenuItem: React.FC<CardMenuItemProps> = (props: CardMenuItemPr
                     addItem(props.rawData)
                 }}/>
             </div>
+        </CardContainer>
+    )
+}
+
+interface CardOrderProps extends CardProps {
+    status: "confirmed" | "delivered" | "accepted" | "rejected"
+    createdAt: string
+}
+
+export const Card_Order: React.FC<CardOrderProps> = (props: CardOrderProps) => {
+
+    const statusColor = (status: "confirmed" | "delivered" | "accepted" | "rejected") => {
+        switch (status) {
+            case "confirmed":
+                return "text-primary"
+            case "delivered":
+                return "text-green-500"
+            case "accepted":
+                return "text-primary"
+            case "rejected":
+                return "text-red-500"
+        }
+    }
+
+    console.log(props.createdAt)
+    const createdAt = new Date(props.createdAt).toLocaleString("en-AU", {"timeZone": "Australia/Sydney", "dateStyle": "short", "timeStyle": "short"})
+
+    return (
+        <CardContainer whileTap={{scale: 0.95, transition: emphasizedEasing_Medium}}>
+            <motion.div className="Card flex flex-col items-start self-stretch"
+            >
+                <div className="ImageContainer relative w-full aspect-video">
+                    {props.imageSrc && <Image src={props.imageSrc} alt={props.title} fill style={{objectFit: "cover"}}
+                                              sizes="320px, 180px"/>}
+                </div>
+                <div className="TextContainer w-full flex flex-col gap-2 px-4 py-6 ">
+                    <div className="flex flex-col">
+                        <p className={`text-sm uppercase font-semibold ${statusColor(props.status)}`}>{props.status}</p>
+                        <p className="card-title">{props.title}</p>
+                    </div>
+                    <div className="card-subtitle flex flex-row gap-2">
+                        <span className=" uppercase">${props.description}</span>
+                        <span>|</span>
+                        <span>{createdAt}</span>
+                    </div>
+                </div>
+            </motion.div>
         </CardContainer>
     )
 }

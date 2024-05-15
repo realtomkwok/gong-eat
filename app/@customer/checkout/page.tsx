@@ -1,7 +1,7 @@
 'use client'
 
 import React from "react";
-import {MenuItemData, CartItemData, SubmitOrderData, CustomerData} from "@/app/api/definitions";
+import {MenuItemData, CartItemData, SubmitOrderData, OrderItemData} from "@/app/api/definitions";
 import Link from "next/link";
 import {Button} from "@/app/components/button";
 import {useItemStore} from "@/app/providers/item-store-provider";
@@ -60,20 +60,28 @@ export default function CheckoutPage() {
             comment: instructions
         }
 
-        // Handle order submission
-        const handleCheckout = () => {
-            submitOrder(orderData).then((res) => {
+        const itemData: OrderItemData[] = cartItemData.map((item) => (
+            {
+                order_id: undefined,
+                item_id: item.item_id,
+                quantity: item.item_counts
+            }
+        ))
+
+        // Handle orders submission
+        const handleOrderSubmit = () => {
+            submitOrder(orderData, itemData).then(() => {
                 console.log("Order is submitted.")
-                console.log(res)
+
             }).catch((error) => {
-                console.error("Failed to submit order:", error)
+                console.error("Failed to submit orders:", error)
             })
         }
 
 
         return (
-            <div className="container w-full text-onSurface">
-                <div className="mx-auto p-8">
+            <div className="w-full text-onSurface">
+                <div className="container mx-auto p-8">
                     <Link href={"/"}>
                         <Button icon={{iconName: "arrow_back"}} label="Back to Menu" className="w-fit"/>
                     </Link>
@@ -167,7 +175,7 @@ export default function CheckoutPage() {
                                     <h2>Total</h2>
                                     <span>${orderTotal.toFixed(2)}</span>
                                 </div>
-                                <Button onClick={() => handleCheckout()}
+                                <Button onClick={() => handleOrderSubmit()}
                                         icon={{iconName: "arrow_forward"}}
                                         label="Place Order"
                                         btnStyle={{

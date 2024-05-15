@@ -12,7 +12,7 @@ export default function DetailPageLayout({children}: {children: React.ReactNode}
     })
 
     return (
-        <main className="pt-32">
+        <main className="container mx-auto pt-32">
             <NavIsland />
             {children}
         </main>

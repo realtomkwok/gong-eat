@@ -35,8 +35,16 @@ export interface CartItemData extends MenuItemData {
     item_counts: number
 }
 
+export interface OrderItemData {
+    order_id: undefined | number
+    item_id: number
+    quantity: number
+    item_name?: string
+    item_price?: number
+}
+
 export interface OrderData {
-    order_id: string
+    order_id: number | undefined
     restaurant_id: number
     customer_id: string
     delivery_person_id?: string
@@ -46,7 +54,12 @@ export interface OrderData {
     order_service_fee: number
     order_rating?: number
     order_review?: string
-    created_time: Date
+    create_time?: string
+}
+
+export interface OrderCardData extends OrderData {
+    restaurant_name: string | undefined
+    restaurant_hero_image: string | undefined
 }
 
 export type SubmitOrderData = Omit<OrderData, "order_id" | "delivery_person_id" | "created_time" | "order_rating" | "order_review">

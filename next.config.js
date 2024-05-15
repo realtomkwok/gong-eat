@@ -22,5 +22,6 @@ module.exports = {
                 hostname: 'img.delicious.com.au'
             }
         ]
-    }
+    },
+    output: "standalone"
 }

@@ -92,7 +92,7 @@ export default function NavIsland() {
     const Initial: React.FC<MotionProps> = ({...rest}) => {
         return (
             <motion.nav className="flex flex-row rounded-full gap-4 w-fit" {...rest}>
-                <Link href={"/account"}>
+                <Link href={"/account"} prefetch={false}>
                     <Button icon={{iconName: "account_circle"}} btnStyle={{
                         color: "bg-surfaceContainer",
                         stateColor: "bg-stateSurfaceVariantContainer",

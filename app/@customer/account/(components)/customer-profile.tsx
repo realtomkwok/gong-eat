@@ -6,11 +6,9 @@ import { useCustomerStore } from "@/app/store/customer-store";
 import { CustomerState} from "@/app/store/customer-store";
 import { CustomerData } from "@/app/api/definitions";
 import Link from "next/link.js";
-import {Button} from "@/app/components/button";
 import {MaterialIcon} from "@/app/components/material-icon";
 
 export const CustomerProfile = ({ initialData }: {initialData: CustomerData}) => {
-    console.log(initialData)
     const customerStore = useStore(useCustomerStore, (state: CustomerState) => state.customerData)
 
     useEffect(() => {
@@ -40,17 +38,24 @@ export const CustomerProfile = ({ initialData }: {initialData: CustomerData}) =>
             </div>
             <div className="border-b border-outlineVariant my-4"/>
             <div className="flex flex-col gap-4">
-                <Link href={"/update-profile"}>
+                <Link href={"account/update-profile"}>
                     <div className="inline-flex flex-row justify-between items-center gap-4 text-primary">
                         <MaterialIcon iconName={"edit"}/>
                         <h4 className="font-semibold text-base ">Update Profile</h4>
                     </div>
                 </Link>
                 <div className="border-b border-outlineVariant-50"/>
-                <Link href={"/manage-membership"}>
+                <Link href={"account/manage-membership"}>
                     <div className="inline-flex flex-row justify-between items-center gap-4 text-primary">
                         <MaterialIcon iconName={"star"}/>
                         <h4 className="font-semibold text-base ">Manage Membership</h4>
+                    </div>
+                </Link>
+                <div className="border-b border-outlineVariant-50"/>
+                <Link href={""}>
+                    <div className="inline-flex flex-row justify-between items-center gap-4 text-red-700">
+                        <MaterialIcon iconName={"logout"}/>
+                        <h4 className="font-semibold text-base ">Log Out</h4>
                     </div>
                 </Link>
             </div>
