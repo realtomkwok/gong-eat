@@ -6,7 +6,6 @@ import {Button} from "@/app/components/button";
 
 export const OrderHistory = ({orderData, restaurantData}: {orderData: OrderCardData[], restaurantData: RestaurantData[]}) => {
     // Add restaurant name to orders data
-
     orderData.forEach(order => {
         const restaurant = restaurantData.find(restaurant => restaurant.restaurant_id === order.restaurant_id)
         order.restaurant_name = restaurant?.restaurant_name
@@ -17,12 +16,11 @@ export const OrderHistory = ({orderData, restaurantData}: {orderData: OrderCardD
         return (
             <>
                 <h2 className="font-semibold text-2xl tracking-tight">Order History</h2>
-                {/* TODO: Display orders cards */}
                 <div className="flex overflow-x-auto mt-6">
                     {orderData.map((order, key) => (
-                        <Link href={`/account/orders/order_id=${order.order_id}`}>
+                        <Link href={`/account/orders/order_id=${order.order_id}`} key={key}>
                             <div className="flex-shrink-0 w-80 mr-4">
-                                <Card_Order key={key}
+                                <Card_Order
                                             title={order.restaurant_name!}
                                             imageSrc={order.restaurant_hero_image!}
                                             status={order.order_status}

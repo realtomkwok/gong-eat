@@ -5,19 +5,26 @@ import {CustomerProfile} from "@/app/@customer/account/(components)/customer-pro
 import {OrderHistory} from "@/app/@customer/account/(components)/order-history";
 
 export default async function AccountPage() {
-    const customerData: CustomerData = await getServerData('/customer?customer_id=1')
-    const orderData: OrderCardData[] = await getServerData('/orders/customer/1')
-    const restaurantData: RestaurantData[] = await getServerData('/restaurant/all')
+    const customerId = 1
+
+    const customerData: Promise<CustomerData> = getServerData(`/customer?customer_id=${customerId}`)
+    const ordersData: Promise<OrderCardData[]> = getServerData(`/orders/customer/${customerId}`)
+    const restaurantsData: Promise<RestaurantData[]> = getServerData('/restaurant/all')
+
+    // Wait for all data to be fetched
+    const [customer, orders, restaurants] = await Promise.all([customerData, ordersData, restaurantsData])
+
+    console.log(orders)
 
     return (
         <div>
-            <h1 className="font-semibold text-6xl tracking-tighter py-12">Bon appétit, {customerData.customer_name.split(" ")[0]}!</h1>
+            <h1 className="font-semibold text-6xl tracking-tighter py-12">Bon appétit, {customer.customer_name.split(" ")[0]}!</h1>
             <div className="grid grid-cols-3 gap-6">
                 <section className="col-span-1 bg-surface p-6 rounded-3xl">
-                    <CustomerProfile initialData={customerData}/>
+                    <CustomerProfile initialData={customer}/>
                 </section>
                 <section className="col-span-2 bg-surface p-6 rounded-3xl">
-                    <OrderHistory orderData={orderData} restaurantData={restaurantData} />
+                    <OrderHistory orderData={orders} restaurantData={restaurants} />
                 </section>
             </div>
         </div>
