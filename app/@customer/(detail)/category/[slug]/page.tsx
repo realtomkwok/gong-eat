@@ -4,7 +4,6 @@ import Link from "next/link";
 import {Card_Restaurant} from "@/app/components/card";
 import getServerData from "@/app/api/get-server-data";
 import restaurantCategories from "@/app/api/restaurant-categories";
-import {Suspense} from "react";
 
 const CategoryPage = async ({params, searchParams}: {
     params: { slug: string },
@@ -42,7 +41,6 @@ const CategoryPage = async ({params, searchParams}: {
     }
 
     return (
-        <Suspense>
             <section
                 className="container mx-auto grid gap-6 xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2">
                 {restaurants.map((
@@ -72,7 +70,6 @@ const CategoryPage = async ({params, searchParams}: {
                     )
                 })}
             </section>
-        </Suspense>
     )
 }
 
