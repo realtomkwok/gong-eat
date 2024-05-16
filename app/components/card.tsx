@@ -112,11 +112,11 @@ export const Card_Order: React.FC<CardOrderProps> = (props: CardOrderProps) => {
             case "confirmed":
                 return "text-primary"
             case "delivered":
-                return "text-green-500"
+                return "text-tertiary"
             case "accepted":
-                return "text-primary"
+                return "text-secondary"
             case "rejected":
-                return "text-red-500"
+                return "text-error"
         }
     }
 

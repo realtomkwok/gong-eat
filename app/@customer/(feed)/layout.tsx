@@ -1,5 +1,5 @@
 import React from "react";
-import ClientLayout, from "@/app/@customer/(feed)/client-layout";
+import ClientLayout from "@/app/@customer/(feed)/client-layout";
 import {CategoryData} from "@/app/api/definitions";
 import RestaurantCategories from "@/app/api/restaurant-categories";
 

@@ -11,11 +11,11 @@ import useStore from "@/app/api/useStore";
 import {CustomerState, useCustomerStore} from "@/app/store/customer-store";
 
 export default function CheckoutPage() {
-
     const customerData = useStore(useCustomerStore, (state: CustomerState) => state.customerData)
     const {items} = useItemStore((state) => state)
     const [instructions, setInstructions] = React.useState<string>("")
 
+    console.log(customerData)
 
     // TODO: Separate different restaurant items into different orders
     // console.log(groupItemsByKey(items, 'restaurant_id'))
@@ -42,7 +42,8 @@ export default function CheckoutPage() {
     }
 
 
-    if (customerData && items) {
+
+    try {
         const cartItemData = aggregateItems(items)
 
         const itemCountsInOrder = cartItemData.reduce((acc, item) => acc + item.item_counts, 0)
@@ -189,9 +190,24 @@ export default function CheckoutPage() {
                 </div>
             </div>
         )
-    } else {
+    } catch (error) {
         return (
-            <h1>Order not found</h1>
+            <div className="w-full text-onSurface ">
+                <div className="container mx-auto p-8">
+                    <h1 className="font-semibold text-6xl tracking-tighter py-12">Checkout</h1>
+                    <div className="bg-surface p-6 rounded-3xl text-onSurface">
+                        <h2 className="font-semibold text-2xl mb-4 tracking-tight">Oops... You haven't signed in!</h2>
+                        <div className="flex flex-col gap-4">
+                            <p className="font-normal text-base">Please sign in to continue to checkout.</p>
+                            <div className="inline-flex">
+                                <Link href={"/account"}>
+                                    <Button icon={{iconName: "arrow_forward"}} label="Sign In" className="w-fit"/>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         )
     }
 }

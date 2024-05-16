@@ -3,7 +3,7 @@
 import Link from "next/link";
 import {Button} from "@/app/components/button";
 import Search from "@/app/components/search";
-import React, {useState} from "react";
+import React, {Suspense, useState} from "react";
 import {useItemStore} from "@/app/providers/item-store-provider";
 import Image from "next/image";
 import Stepper from "@/app/components/stepper";
@@ -17,6 +17,10 @@ export default function NavIsland() {
 
     const totalPrice = getItems(items).totalPrice
     const groupedItems = getItems(items).groupedItems
+
+    function SearchBarFallback() {
+        return <>placeholder</>
+    }
 
     const ShoppingBag: React.FC<MotionProps> = ({...rest}) => {
         const {addItem, removeItem} = useItemStore((state) => state,)
@@ -105,7 +109,9 @@ export default function NavIsland() {
                     </Link>
                 </div>
                 {/*<Button icon={{iconName: "location_on"}} label={deliveryAddress}/>*/}
-                <Search placeholder={"Cuisine, Restaurants, etc..."}/>
+                <Suspense fallback={<SearchBarFallback />}>
+                    <Search placeholder={"Cuisine, Restaurants, etc..."}/>
+                </Suspense>
                 <Button icon={{iconName: "shopping_basket"}} btnStyle={{
                     color: "bg-surfaceContainer",
                     stateColor: "bg-stateSurfaceVariant",
