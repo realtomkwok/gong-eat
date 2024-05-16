@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  gong-eats-customer-development:
+    build:
+      context: ../../
+      dockerfile: docker/development/Dockerfile
+    image: x81336/gong-eats-customer-development
+    ports:
+      - "4001:4000"

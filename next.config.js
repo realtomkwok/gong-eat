@@ -1,4 +1,7 @@
 module.exports = {
+    experimental: {
+        missingSuspenseWithCSRBailout: false,
+    },
     images: {
         remotePatterns: [
             {
@@ -23,5 +26,5 @@ module.exports = {
             }
         ]
     },
-    output: "standalone"
+    output: 'standalone'
 }
