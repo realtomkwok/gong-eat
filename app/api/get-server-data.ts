@@ -3,7 +3,7 @@ export default async function getServerData(url: string) {
 
     const response = await fetch(process.env.SERVER_URL + url, {method: 'GET', cache: 'no-store'})
     if (!response.ok) {
-        throw new Error(`Failed to fetch data. HTTP status: ${response.status}`)
+        throw new Error(`Failed to fetch data from ${url}. HTTP status: ${response.status}`)
     }
     return response.json()
 }

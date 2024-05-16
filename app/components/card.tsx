@@ -120,7 +120,6 @@ export const Card_Order: React.FC<CardOrderProps> = (props: CardOrderProps) => {
         }
     }
 
-    console.log(props.createdAt)
     const createdAt = new Date(props.createdAt).toLocaleString("en-AU", {"timeZone": "Australia/Sydney", "dateStyle": "short", "timeStyle": "short"})
 
     return (

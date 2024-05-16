@@ -12,7 +12,11 @@ export const OrderHistory = ({orderData, restaurantData}: {orderData: OrderCardD
         order.restaurant_hero_image = restaurant?.restaurant_hero_image
     })
 
-    if (orderData !== undefined && orderData.length > 0) {
+    // Larger ID means newer orders which should be displayed first
+    // @ts-ignore
+    orderData.sort((a, b) => b.order_id - a.order_id)
+
+    if (orderData.length > 0) {
         return (
             <>
                 <h2 className="font-semibold text-2xl tracking-tight">Order History</h2>

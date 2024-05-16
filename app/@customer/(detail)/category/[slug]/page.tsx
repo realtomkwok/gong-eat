@@ -3,27 +3,24 @@ import slugify from "slugify";
 import Link from "next/link";
 import {Card_Restaurant} from "@/app/components/card";
 import getServerData from "@/app/api/get-server-data";
-import getData from "@/app/api/get-data";
+import restaurantCategories from "@/app/api/restaurant-categories";
+import {Suspense} from "react";
 
-interface CategoryPageProps {
-    params: {
-        slug: string
-    }
-    query: string
-}
-
-const CategoryPage = async ({params, query}: CategoryPageProps) => {
+const CategoryPage = async ({params, searchParams}: {
+    params: { slug: string },
+    searchParams?: { query?: string, page?: string }
+}) => {
     const currentCategory = params.slug
     const allRestaurants = await getServerData('/restaurant/all')
-    const allCategories: [CategoryData] = await getData('/api/categories.json')
+    const allCategories: CategoryData[] = restaurantCategories
 
     let restaurants: RestaurantData[]
 
     // Filter by search query
-    if (query) {
-        const lowercaseQuery = query.toLowerCase()
+    if (searchParams?.query) {
+        const lowercaseQuery = searchParams.query.toLowerCase()
         restaurants = allRestaurants.filter((restaurant: RestaurantData) => {
-           const nameMatch = restaurant.restaurant_name.toLowerCase().includes(lowercaseQuery)
+            const nameMatch = restaurant.restaurant_name.toLowerCase().includes(lowercaseQuery)
             const categoryMatch = allCategories.find((category: CategoryData) => category.category_id === restaurant.category_id)?.category_name.toLowerCase().includes(lowercaseQuery)
             return nameMatch || categoryMatch
         })
@@ -45,7 +42,7 @@ const CategoryPage = async ({params, query}: CategoryPageProps) => {
     }
 
     return (
-        <>
+        <Suspense>
             <section
                 className="container mx-auto grid gap-6 xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2">
                 {restaurants.map((
@@ -75,7 +72,7 @@ const CategoryPage = async ({params, query}: CategoryPageProps) => {
                     )
                 })}
             </section>
-        </>
+        </Suspense>
     )
 }
 

@@ -1,13 +1,7 @@
 import CategoryPage from "@/app/@customer/(detail)/category/[slug]/page";
 
-export default async function FeedMainPage({searchParams}: {
-    searchParams?: {
-        query?: string
-    }
-}) {
-    const query = searchParams?.query || ''
-
+export default async function FeedMainPage() {
     return (
-        <CategoryPage params={{slug: 'all'}} query={query} />
+        <CategoryPage params={{slug: 'all'}} />
     )
 }
