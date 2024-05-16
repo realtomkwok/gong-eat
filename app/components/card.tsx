@@ -78,9 +78,9 @@ export const Card_MenuItem: React.FC<CardMenuItemProps> = (props: CardMenuItemPr
 
     return (
         <CardContainer>
-            <div className="ImageContainer relative w-full aspect-video">
+            {props.imageSrc && <div className="ImageContainer relative w-full aspect-video">
                 {props.imageSrc && <Image src={props.imageSrc} alt={props.title} fill style={{objectFit: "cover"}}/>}
-            </div>
+            </div>}
             <div className="TextContainer w-full flex flex-col gap-2 px-4 py-6 min-h-40">
                 <div className="flex flex-row items-baseline justify-between">
                     <p className="card-title">{props.title}</p>

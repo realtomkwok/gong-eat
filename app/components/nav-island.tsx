@@ -103,7 +103,7 @@ export default function NavIsland() {
                         textColor: "bg-onSurfaceContainer"
                     }}/>
                 </Link>
-                <div className="flex px-2 pb-1 content-center items-center text-2xl font-bold tracking-widest">
+                <div className="flex px-2 pb-1 content-center items-center text-2xl font-bold tracking-widest select-none">
                     <Link href="/">
                         <span>GONG EATS</span>
                     </Link>

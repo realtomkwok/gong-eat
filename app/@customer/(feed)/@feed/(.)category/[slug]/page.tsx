@@ -1,16 +1,9 @@
 import CategoryPage from "@/app/@customer/(detail)/category/[slug]/page";
-import {Suspense} from "react";
 
-export default function RestaurantModal({params, searchParams}: {
-    params: { slug: string },
-    searchParams?: { query?: string, page?: string }
-}) {
-
-    const query = searchParams?.query || ""
+export default function CategoryPageSlug({params, searchParams}: { params: { slug: string }, searchParams: { query?: string, page?: string }}) {
+    console.log(searchParams)
 
     return (
-        <Suspense>
-            <CategoryPage params={params} searchParams={{query: query}}/>
-        </Suspense>
+        <CategoryPage params={params} searchParams={searchParams}/>
     )
 }
