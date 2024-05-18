@@ -48,7 +48,7 @@ export interface OrderData {
     restaurant_id: number
     customer_id: string
     delivery_person_id?: string
-    order_status: "confirmed" | "delivered" | "accepted" | "rejected"
+    order_status: "confirmed" | "accepted" | "rejected" | "delivering" | "delivered"
     comment: string
     order_subtotal: number
     order_service_fee: number

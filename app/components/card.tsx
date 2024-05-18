@@ -6,7 +6,7 @@ import {motion, MotionProps} from "framer-motion";
 import {MaterialIcon} from "@/app/components/material-icon";
 import {emphasizedEasing_Medium} from "@/app/api/motion-config";
 import {useItemStore} from "@/app/providers/item-store-provider";
-import {MenuItemData} from "@/app/api/definitions";
+import {MenuItemData, OrderData} from "@/app/api/definitions";
 import Stepper from "@/app/components/stepper";
 
 interface CardProps {
@@ -101,13 +101,13 @@ export const Card_MenuItem: React.FC<CardMenuItemProps> = (props: CardMenuItemPr
 }
 
 interface CardOrderProps extends CardProps {
-    status: "confirmed" | "delivered" | "accepted" | "rejected"
+    status: OrderData["order_status"]
     createdAt: string
 }
 
 export const Card_Order: React.FC<CardOrderProps> = (props: CardOrderProps) => {
 
-    const statusColor = (status: "confirmed" | "delivered" | "accepted" | "rejected") => {
+    const statusColor = (status: CardOrderProps["status"]) => {
         switch (status) {
             case "confirmed":
                 return "text-primary"

@@ -42,7 +42,6 @@ export default function CheckoutPage() {
     }
 
 
-
     try {
         if (customerData != undefined) {
             const cartItemData = aggregateItems(items)
@@ -198,7 +197,8 @@ export default function CheckoutPage() {
                 <div className="container mx-auto p-8">
                     <h1 className="font-semibold text-6xl tracking-tighter py-12">Checkout</h1>
                     <div className="bg-surface p-6 rounded-3xl text-onSurface">
-                        <h2 className="font-semibold text-2xl mb-4 tracking-tight">Oops... You haven't signed in!</h2>
+                        <h2 className="font-semibold text-2xl mb-4 tracking-tight">Oops... You haven&apos;t signed
+                            in!</h2>
                         <div className="flex flex-col gap-4">
                             <p className="font-normal text-base">Please sign in to continue to checkout.</p>
                             <div className="inline-flex">

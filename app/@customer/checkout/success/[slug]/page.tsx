@@ -1,6 +1,5 @@
 import React from 'react'
 import {Button} from "@/app/components/button";
-import Link from "next/link.js";
 
 export default function OrderConfirmationPage({params}: { params: { slug: string } }) {
     // TODO: Refine the UI of this page
@@ -27,9 +26,9 @@ export default function OrderConfirmationPage({params}: { params: { slug: string
                             </div>
                         </div>
                     </div>
-                    <Link href={"/"}>
+                    <a href={"/"}>
                         <Button icon={{iconName: "arrow_forward"}} label="Back to Home"/>
-                    </Link>
+                    </a>
                 </section>
             </div>
         </div>

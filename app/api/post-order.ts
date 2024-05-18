@@ -44,6 +44,7 @@ export async function submitOrder(orderData: SubmitOrderData, orderItems: OrderI
 
 export async function submitItems(itemData: OrderItemData[]): Promise<void> {
     console.log("Submitting items...");
+    console.log(JSON.stringify(itemData))
 
     try {
         const response = await fetch(process.env.SERVER_URL + '/api/orderitems', {

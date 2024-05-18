@@ -14,8 +14,6 @@ export default async function AccountPage() {
     // Wait for all data to be fetched
     const [customer, orders, restaurants] = await Promise.all([customerData, ordersData, restaurantsData])
 
-    console.log(orders)
-
     return (
         <div>
             <h1 className="font-semibold text-6xl tracking-tighter py-12">Bon appétit, {customer.customer_name.split(" ")[0]}!</h1>

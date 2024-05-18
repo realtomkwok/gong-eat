@@ -36,7 +36,7 @@ export default async function OrderDetailsPage({params}: { params: { slug: strin
                 }
             case "rejected":
                 return {
-                    bg: "bg-red-500",
+                    bg: "bg-error",
                     text: "text-onPrimary"
                 }
         }
