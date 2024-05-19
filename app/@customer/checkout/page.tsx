@@ -6,7 +6,6 @@ import Link from "next/link";
 import {Button} from "@/app/components/button";
 import {useItemStore} from "@/app/providers/item-store-provider";
 import {submitOrder} from "@/app/api/post-order";
-import groupItemsByKey from "@/app/api/group-items";
 import useStore from "@/app/api/useStore";
 import {CustomerState, useCustomerStore} from "@/app/store/customer-store";
 
@@ -18,7 +17,6 @@ export default function CheckoutPage() {
     console.log(customerData)
 
     // TODO: Separate different restaurant items into different orders
-    // console.log(groupItemsByKey(items, 'restaurant_id'))
 
     // Aggregate items in cart
     const aggregateItems = (items: MenuItemData[]): CartItemData[] => {
@@ -54,11 +52,12 @@ export default function CheckoutPage() {
 
             const orderData: SubmitOrderData = {
                 restaurant_id: cartItemData[0].restaurant_id,
-                customer_id: customerData.customer_id.toString(),
+                customer_id: customerData.customer_id,
+                delivery_person_id: 1,
                 order_status: "confirmed",
                 order_subtotal: orderSubtotal,
                 order_service_fee: finalServiceFee,
-                comment: instructions
+                comment: instructions,
             }
 
             const itemData: OrderItemData[] = cartItemData.map((item) => (

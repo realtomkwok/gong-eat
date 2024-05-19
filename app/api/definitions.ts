@@ -17,7 +17,7 @@ export interface CustomerData {
     customer_phone: string
     customer_address: string
     vip_status: "active" | "inactive"
-    vip_expire: Date
+    vip_expire: Date | null
 }
 
 export interface MenuItemData {
@@ -46,8 +46,8 @@ export interface OrderItemData {
 export interface OrderData {
     order_id: number | undefined
     restaurant_id: number
-    customer_id: string
-    delivery_person_id?: string
+    customer_id: number
+    delivery_person_id?: number
     order_status: "confirmed" | "accepted" | "rejected" | "delivering" | "delivered"
     comment: string
     order_subtotal: number
@@ -62,7 +62,7 @@ export interface OrderCardData extends OrderData {
     restaurant_hero_image: string | undefined
 }
 
-export type SubmitOrderData = Omit<OrderData, "order_id" | "delivery_person_id" | "created_time" | "order_rating" | "order_review">
+export type SubmitOrderData = Omit<OrderData, "order_id" | "created_time" | "order_rating" | "order_review">
 
 export interface CategoryData {
     category_id: number

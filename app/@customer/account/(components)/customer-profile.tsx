@@ -3,7 +3,7 @@
 import React, {useEffect} from "react";
 import useStore from "@/app/api/useStore";
 import { useCustomerStore } from "@/app/store/customer-store";
-import { CustomerState} from "@/app/store/customer-store";
+import { CustomerState } from "@/app/store/customer-store";
 import { CustomerData } from "@/app/api/definitions";
 import Link from "next/link.js";
 import {MaterialIcon} from "@/app/components/material-icon";
@@ -52,10 +52,11 @@ export const CustomerProfile = ({ initialData }: {initialData: CustomerData}) =>
                     </div>
                 </Link>
                 <div className="border-b border-outlineVariant-50"/>
+                {/* TODO: Switch user from `customer_id`= 1 to 2 */}
                 <Link href={""}>
                     <div className="inline-flex flex-row justify-between items-center gap-4 text-red-700">
-                        <MaterialIcon iconName={"logout"}/>
-                        <h4 className="font-semibold text-base ">Log Out</h4>
+                        <MaterialIcon iconName={"switch_account"}/>
+                        <h4 className="font-semibold text-base ">Switch Account</h4>
                     </div>
                 </Link>
             </div>

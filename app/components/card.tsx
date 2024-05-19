@@ -110,13 +110,32 @@ export const Card_Order: React.FC<CardOrderProps> = (props: CardOrderProps) => {
     const statusColor = (status: CardOrderProps["status"]) => {
         switch (status) {
             case "confirmed":
-                return "text-primary"
+                return {
+                    bg: "bg-primary",
+                    text: "text-primary"
+                }
+            case "delivering": {
+                return {
+                    bg: "bg-tertiaryFixed",
+                    text: "text-onTertiaryFixed"
+                }
+            }
             case "delivered":
-                return "text-tertiary"
+                return {
+                    bg: "bg-tertiary",
+                    text: "text-tertiary",
+                }
             case "accepted":
-                return "text-secondary"
+                return {
+                    bg: "bg-secondary",
+                    text: "text-secondary"
+                }
             case "rejected":
-                return "text-error"
+                return {
+                    bg: "bg-error",
+                    text: "text-error"
+
+                }
         }
     }
 
@@ -132,7 +151,7 @@ export const Card_Order: React.FC<CardOrderProps> = (props: CardOrderProps) => {
                 </div>
                 <div className="TextContainer w-full flex flex-col gap-2 px-4 py-6 ">
                     <div className="flex flex-col">
-                        <p className={`text-sm uppercase font-semibold ${statusColor(props.status)}`}>{props.status}</p>
+                        <p className={`text-sm uppercase font-semibold ${statusColor(props.status).text}`}>{props.status}</p>
                         <p className="card-title">{props.title}</p>
                     </div>
                     <div className="card-subtitle flex flex-row gap-2">

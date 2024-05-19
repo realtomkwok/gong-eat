@@ -1,16 +1,53 @@
-import React from "react";
+'use client'
+
+import React, {useEffect} from "react";
 import {MenuItemData, OrderData, OrderItemData} from "@/app/api/definitions";
 import getID from "@/app/api/get-id";
-import getServerData from "@/app/api/get-server-data";
 import {Button} from "@/app/components/button";
 import Link from "next/link";
 import {MaterialIcon} from "@/app/components/material-icon";
+import {
+    getAnOrder,
+    getOrderItems,
+    getRestaurantMenu,
+} from "@/app/@customer/account/(actions)/get-account";
 
-export default async function OrderDetailsPage({params}: { params: { slug: string } }) {
+export default function OrderDetailsPage({params}: { params: { slug: string } }) {
     const orderID = Number(getID(params.slug))
-    const orderData: OrderData | undefined = await getServerData('/orders?order_id=' + orderID)
-    const orderItems: OrderItemData[] = await getServerData('/api/orderitems/' + orderID)
-    const restaurantMenu: MenuItemData[] = await getServerData('/menu?restaurant_id=' + orderData?.restaurant_id)
+    const [orderData, setOrderData] = React.useState<OrderData | undefined>(undefined)
+    const [restaurantMenu, setRestaurantMenu] = React.useState<Array<MenuItemData>>([])
+    const [orderItems, setOrderItems] = React.useState<Array<OrderItemData>>([])
+
+    useEffect(() => {
+        const fetchOrderData = async () => {
+            const orderData: OrderData = await getAnOrder(orderID)
+            setOrderData(orderData)
+        }
+
+        const fetchRestaurantMenu = async () => {
+            const orderData: OrderData = await getAnOrder(orderID)
+            const menuData: Array<MenuItemData> = await getRestaurantMenu(orderData.restaurant_id)
+            setRestaurantMenu(menuData)
+        }
+
+        const fetchOrderItems = async () => {
+            const orderItems = await getOrderItems(orderID)
+            setOrderItems(orderItems)
+        }
+
+        void fetchOrderData()
+        void fetchRestaurantMenu()
+        void fetchOrderItems()
+
+        const intervalID = setInterval(() => {
+            void fetchOrderData()
+            void fetchRestaurantMenu()
+            void fetchOrderItems()
+        }, 5000)
+
+        return () => clearInterval(intervalID)
+    }, [])
+
 
     orderItems.forEach(item => {
         item.item_name = restaurantMenu.find(menuItem => menuItem.item_id === item.item_id)?.item_name
@@ -23,6 +60,11 @@ export default async function OrderDetailsPage({params}: { params: { slug: strin
                 return {
                     bg: "bg-primary",
                     text: "text-onPrimary"
+                }
+            case "delivering":
+                return {
+                    bg: "bg-tertiaryFixed",
+                    text: "text-onTertiaryFixed"
                 }
             case "delivered":
                 return {
@@ -71,7 +113,7 @@ export default async function OrderDetailsPage({params}: { params: { slug: strin
                         <div className="flex flex-col gap-2">
                             {/* TODO: Delivery information */}
                             <h2 className="font-semibold text-2xl tracking-tight">Delivered by</h2>
-                            <p className="text-base">{orderData?.delivery_person_id}</p>
+                            <p className="text-base">John Doe</p>
                         </div>
                         <div className="flex flex-col gap-2">
                             <h2 className="font-semibold text-2xl tracking-tight">Order Date</h2>
@@ -120,7 +162,7 @@ export default async function OrderDetailsPage({params}: { params: { slug: strin
                             </ul>
                             <div className="flex justify-between gap-4">
                                 <p className="font-semibold text-xl">Subtotal</p>
-                                <p className="font-semibold text-xl">${orderData?.order_subtotal}</p>
+                                <p className="font-semibold text-xl">${orderData?.order_subtotal.toFixed(2)}</p>
                             </div>
                         </div>
                     </div>

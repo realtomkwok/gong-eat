@@ -28,7 +28,7 @@ export const OrderHistory = ({orderData, restaurantData}: {orderData: OrderCardD
                                             title={order.restaurant_name!}
                                             imageSrc={order.restaurant_hero_image!}
                                             status={order.order_status}
-                                            description={order.order_subtotal.toString()}
+                                            description={order.order_subtotal.toFixed(2).toString()}
                                             createdAt={order.create_time!}
                                 />
                             </div>
