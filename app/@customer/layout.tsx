@@ -1,7 +1,6 @@
 'use client'
 
-import {useThemeStore} from "@/app/providers/theme-store-provider";
-import {useEffect} from "react";
+import React from "react";
 
 export default function CustomerLayout({children}: {children: React.ReactNode}) {
     // const { setBackground } = useThemeStore((state => state))

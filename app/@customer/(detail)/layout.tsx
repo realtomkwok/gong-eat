@@ -1,4 +1,5 @@
 import NavIsland from "@/app/components/nav-island";
+import React from "react";
 
 export default function DetailPageLayout({children}: {children: React.ReactNode}) {
     return (

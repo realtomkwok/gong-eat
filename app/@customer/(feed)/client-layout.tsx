@@ -1,10 +1,9 @@
 'use client'
 
 import React, {useEffect} from "react";
-import {AnimatePresence, motion} from "framer-motion";
+import {AnimatePresence} from "framer-motion";
 import {TabPanel, Tabs} from "@/app/components/tabs";
 import {CategoryData} from "@/app/api/definitions"
-import {Button} from "@/app/components/button";
 import TabCategory from "@/app/components/tab-category";
 import {usePathname} from "next/navigation";
 import NavIsland from "@/app/components/nav-island";

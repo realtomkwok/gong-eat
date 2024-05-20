@@ -46,7 +46,7 @@ export default function OrderDetailsPage({params}: { params: { slug: string } })
         }, 5000)
 
         return () => clearInterval(intervalID)
-    }, [])
+    }, [orderID])
 
 
     orderItems.forEach(item => {
@@ -101,7 +101,7 @@ export default function OrderDetailsPage({params}: { params: { slug: string } })
                 <h1 className="font-semibold text-4xl tracking-tight">Order #{orderData?.order_id}</h1>
             </div>
             <div className="grid grid-cols-3 gap-6 mt-6">
-                <section className="col-span-1 bg-surface p-6 rounded-3xl">
+                <section className="col-span-1 bg-surface p-6 rounded-3xl h-fit sticky top-28">
                     <div className="flex flex-col gap-8">
                         <div className="flex flex-col gap-2">
                             <h2 className="font-semibold text-2xl tracking-tight">Order Status</h2>
@@ -137,18 +137,35 @@ export default function OrderDetailsPage({params}: { params: { slug: string } })
                         </div>
                     </div>
                 </section>
-                <section className="col-span-2 bg-surface p-6 rounded-3xl">
-                    <div className="flex flex-col gap-4">
+                <div className="col-span-2 flex flex-col gap-4">
+                    {orderData?.order_status === "delivered" &&
+                        <section className="flex flex-col gap-4 bg-surface p-6 rounded-3xl">
+                            <h2 className="font-semibold text-2xl tracking-tight">How was your experience?</h2>
+                            <div className="flex flex-col gap-4">
+                                {/*TODO: A star rating component*/}
+                                {/*<div className="flex flex-row gap-4">*/}
+                                {/*/!* Create a star rating *!/*/}
+
+                                {/*</div>*/}
+                                <div className="flex flex-col gap-4">
+                                <textarea
+                                    className="w-full h-32 p-4 bg-surface border border-outlineVariant rounded-2xl"
+                                    placeholder="Tell us about your experience"/>
+                                </div>
+                            </div>
+                        </section>
+                    }
+                    <section className="flex flex-col gap-4 bg-surface p-6 rounded-3xl">
                         <h2 className="font-semibold text-2xl tracking-tight">Order Items</h2>
                         <div className="flex flex-col gap-2">
                             <ul className="flex flex-col mt-4">
                                 {orderItems.map((item, key) => {
-                                        const itemSubtotal = item.item_price! * item.quantity
-                                        return (
-                                            <li className="flex flex-row gap-4 py-2 min-h-14" key={key}>
-                                                <div
-                                                    className="flex w-6 h-6 justify-center rounded-full bg-tertiary text-onTertiary">
-                                                    <span className="-translate-y-[1px]">{item.quantity}</span>
+                                    const itemSubtotal = item.item_price! * item.quantity
+                                    return (
+                                        <li className="flex flex-row gap-4 py-2 min-h-14" key={key}>
+                                            <div
+                                                className="flex w-6 h-6 justify-center rounded-full bg-tertiary text-onTertiary">
+                                                <span className="-translate-y-[1px]">{item.quantity}</span>
                                                 </div>
                                                 <div
                                                     className="flex flex-row justify-between w-full border-b border-b-outlineVariant">
@@ -165,8 +182,8 @@ export default function OrderDetailsPage({params}: { params: { slug: string } })
                                 <p className="font-semibold text-xl">${orderData?.order_subtotal.toFixed(2)}</p>
                             </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                </div>
             </div>
         </div>
     )
