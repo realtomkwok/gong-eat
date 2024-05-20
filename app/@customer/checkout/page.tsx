@@ -8,13 +8,12 @@ import {useItemStore} from "@/app/providers/item-store-provider";
 import {submitOrder} from "@/app/api/post-order";
 import useStore from "@/app/api/useStore";
 import {CustomerState, useCustomerStore} from "@/app/store/customer-store";
+import {AmexCard} from "@/app/components/payment-card";
 
 export default function CheckoutPage() {
     const customerData = useStore(useCustomerStore, (state: CustomerState) => state.customerData)
     const {items} = useItemStore((state) => state)
     const [instructions, setInstructions] = React.useState<string>("")
-
-    console.log(customerData)
 
     // TODO: Separate different restaurant items into different orders
 
@@ -99,7 +98,19 @@ export default function CheckoutPage() {
                                 </div>
                                 <div className="bg-surface p-6 rounded-3xl text-onSurface">
                                     <h2 className="font-semibold text-2xl mb-4 tracking-tight">Payment Method</h2>
-
+                                    <div className="flex flex-row gap-4">
+                                        <AmexCard className="w-12 h-12"/>
+                                    <div className="flex flex-col gap-4 w-full">
+                                        <div className="flex flex-row justify-between">
+                                            <p className="font-normal text-base">Credit Card</p>
+                                            <p className="font-semibold text-base">**** **** **** 1234</p>
+                                        </div>
+                                        <div className="flex flex-row justify-between">
+                                            <p className="font-normal text-base">Expiration Date</p>
+                                            <p className="font-semibold text-base">12/25</p>
+                                        </div>
+                                    </div>
+                                    </div>
                                 </div>
                                 <div className="bg-surface p-6 rounded-3xl text-onSurface">
                                     <div className="flex flex-row justify-between mb-4">

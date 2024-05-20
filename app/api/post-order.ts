@@ -38,7 +38,6 @@ export async function submitOrder(orderData: SubmitOrderData, orderItems: OrderI
         console.error('Error to submit orders:', error);
     }
 
-    // console.log(orderId)
     permanentRedirect(`/checkout/success/${orderId}`);
 }
 

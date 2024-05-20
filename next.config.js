@@ -23,6 +23,10 @@ module.exports = {
             {
                 protocol: 'https',
                 hostname: 'img.delicious.com.au'
+            },
+            {
+                protocol: 'https',
+                hostname: 'encrypted-tbn0.gstatic.com'
             }
         ]
     },

@@ -15,8 +15,6 @@ const CategoryPage = async ({params, searchParams}: {
 
     let restaurants: RestaurantData[]
 
-    console.log(searchParams?.query)
-
     // Filter by search query
     if (searchParams?.query) {
         const lowercaseQuery = searchParams.query.toLowerCase()
