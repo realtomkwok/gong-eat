@@ -99,7 +99,7 @@ export default function CheckoutPage() {
                                 <div className="bg-surface p-6 rounded-3xl text-onSurface">
                                     <h2 className="font-semibold text-2xl mb-4 tracking-tight">Payment Method</h2>
                                     <div className="flex flex-row gap-4">
-                                        <AmexCard className="w-12 h-12"/>
+                                        <AmexCard />
                                     <div className="flex flex-col gap-4 w-full">
                                         <div className="flex flex-row justify-between">
                                             <p className="font-normal text-base">Credit Card</p>
